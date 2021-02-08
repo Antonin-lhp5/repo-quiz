@@ -42,7 +42,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
             </svg>
           </div>
-          <span class="text-gray-200 hover:text-blue-200"><a href="">Quel célèbre super-héro a pour origine la planète Krypton ?</a></span>
+          <span class="text-gray-200"><a href="">Quel célèbre super-héro a pour origine la planète Krypton ?</a></span>
         </div>
       <?php } ?>
     </div>
@@ -55,7 +55,7 @@
         <form action="" method="GET">
           <div>
             <label class="block mb-2 text-gray-200" for="nameQuiz">Nom du quiz</label>
-            <input class="w-full p-2 mb-6 text-gray-200 outline-none bg-gray-800" type="text" name="nameQuiz" id="nameQuiz" placeholder="ex: L'origine de nos super-héros">
+            <input class="w-full p-2 mb-6 text-gray-200 bg-gray-800 focus:border-transparent" type="text" name="nameQuiz" id="nameQuiz" placeholder="ex: L'origine de nos super-héros">
           </div>
           <div class="w-1/2">
             <label class="block mb-2 text-gray-200" for="imgQuiz">Image du quiz</label>
@@ -84,19 +84,19 @@
       <div class="bg-gray-700 p-5 shadow mb-20">
         <form action="">
           <label class="block mb-2 text-gray-200" for="titleQuiz">La question</label>
-          <input class="w-full p-2 mb-6 text-gray-200 outline-none bg-gray-800" type="text" name="titleQuiz" id="titleQuiz" placeholder="ex: Quel célèbre super-héro à pour origine la planère Krypton ?">
+          <input class="w-full p-2 mb-6 text-gray-200 bg-gray-800 focus:border-transparent" type="text" name="titleQuiz" id="titleQuiz" placeholder="ex: Quel célèbre super-héro à pour origine la planère Krypton ?">
 
           <label class="block mb-2 text-gray-200" for="goodAnswer">Bonne réponse <ion-icon class="text-green-400" name="checkmark-circle"></ion-icon></label>
-          <input class="w-full p-2 mb-6 text-gray-200 bg-gray-800" type="text" name="goodAnswer" id="goodAnswer" placeholder="ex: Super-man">
+          <input class="w-full p-2 mb-6 text-gray-200 bg-gray-800 focus:border-transparent" type="text" name="goodAnswer" id="goodAnswer" placeholder="ex: Super-man">
 
           <label class="block mb-2 text-gray-200" for="FirstWrong">Mauvaise réponse <ion-icon class="text-red-500" name="close-circle"></ion-icon></label>
-          <input class="w-full p-2 mb-6 text-gray-200  bg-gray-800" type="text" name="FirstWrong" id="FirstWrong" placeholder="ex: Wonder Woman">
+          <input class="w-full p-2 mb-6 text-gray-200  bg-gray-800 focus:border-transparent" type="text" name="FirstWrong" id="FirstWrong" placeholder="ex: Wonder Woman">
 
           <label class="block mb-2 text-gray-200" for="thirdWrong">Mauvaise réponse <ion-icon class="text-red-500" name="close-circle"></ion-icon></label>
-          <input class="w-full p-2 mb-6 text-gray-200  bg-gray-800" type="text" name="thirdWrong" id="thirdWrong" placeholder="ex: Hulk">
+          <input class="w-full p-2 mb-6 text-gray-200  bg-gray-800 focus:border-transparent" type="text" name="thirdWrong" id="thirdWrong" placeholder="ex: Hulk">
 
           <label class="block mb-2 text-gray-200" for="fourthWrong">Mauvaise réponse <ion-icon class="text-red-500" name="close-circle"></ion-icon></label>
-          <input class="w-full p-2 mb-6 text-gray-200  bg-gray-800" type="text" name="fourthWrong" id="fourthWrong" placeholder="ex: Wolverine">
+          <input class="w-full p-2 mb-6 text-gray-200  bg-gray-800 focus:border-transparent" type="text" name="fourthWrong" id="fourthWrong" placeholder="ex: Wolverine">
 
           <div>
             <button class="bg-blue-600 hover:bg-blue-700 text-gray-200 font-bold py-2 px-4 rounded " type="submit" value="">

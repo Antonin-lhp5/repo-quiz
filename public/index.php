@@ -111,7 +111,7 @@ require_once "../datas/text-data.php";
             <div class="items-center justify-between py-10 px-5 bg-white shadow-2xl rounded-lg mx-auto text-center">
                 <div class="px-2 -mt-6">
                     <div class="text-center">
-                        <h1 class="font-normal text-3xl text-grey-800 font-medium leading-loose my-3 w-full">Get the
+                        <h1 class="text-3xl text-grey-800 font-medium leading-loose my-3 w-full">Get the
                             Latest Information</h1>
                         <div class="w-full text-center">
                             <form action="#">
