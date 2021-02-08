@@ -1,3 +1,10 @@
+<?php 
+require '../controller/connexion.php';
+var_dump(is_connected());
+header('location: /login.php');
+exit();
+?>
+
 <!doctype html>
 <html lang="fr">
 
