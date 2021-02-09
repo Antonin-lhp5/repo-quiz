@@ -1,8 +1,6 @@
 <?php 
 require '../controller/connexion.php';
-var_dump(is_connected());
-header('location: /login.php');
-exit();
+admin_loggin()
 ?>
 
 <!doctype html>

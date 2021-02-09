@@ -1,7 +1,16 @@
-<?php 
-function is_connected (): bool {
+<?php
+function is_connected(): bool
+{
   if (session_status() === PHP_SESSION_NONE) {
-      session_start();
+    session_start();
   }
-  return !empty($_SESSION['connected']);
-} 
+  return !empty($_SESSION['login']);
+}
+
+function admin_loggin(): void
+{
+  if (!is_connected()) {
+    header('location: /login.php');
+    exit();
+  }
+}

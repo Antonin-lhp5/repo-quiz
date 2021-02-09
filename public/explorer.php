@@ -9,7 +9,9 @@
 </head>
 
 <body class="text-gray-200 font-body">
-    <?php include '../view/explorer.php'; ?>
+    <?php include '../view/menu.php'; ?>
+    <?php include '../view/frontLibrary.php'; ?>
+    <?php include '../view/footer.php'; ?>
     <script src="script.js"></script>
 </body>
 </html>

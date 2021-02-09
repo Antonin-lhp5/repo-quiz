@@ -1,5 +1,3 @@
-<?php include 'menu.php'; ?>
-
 <main id="news" class="bg-black md:p-10">
 
     <div class="container mx-auto max-w-screen-xl bg-gray-900 pt-2 px-3 md:px-5 md:rounded-3xl">
@@ -39,10 +37,10 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-4">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-2 md:gap-4">
 
             <?php
-            for ($i = 1; $i <= 10; $i++) { ?>
+            for ($i = 1; $i <= 14; $i++) { ?>
 
                 <div>
                     <a href="#" class="flex py-2 md:py-3 px-3 group rounded-lg bg-gray-800 ring-1 ring-black ring-opacity-10 shadow-lg hover:bg-gray-700 transition duration-300 ease-in-out">
@@ -75,5 +73,3 @@
         </div>
     </div>
 </main>
-
-<?php include 'footer.php'; ?>
