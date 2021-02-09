@@ -1,7 +1,45 @@
 <?php 
+$titleQuiz = "Les couleurs"; //titre du quiz
 
+$quiz_data = array(
+    1 => array(
+        'question' => "Couleur du cheval blanc d'Henry IV",
+        'good_answer' => "Blanc",
+        'anwser1' => "Noir",
+        'anwser2' => "Jaune",
+        'anwser3' => "Rouge",
+        
+    ),
+    2 => array(
+        'question' => "Couleur des petits poids",
+        'good_answer' => "Vert",
+            2 => "Blanc",
+            3 => "Rouge",
+            4 => "Jaune",
+            
+    ),
+    3 => array(
+        'question' => "Couleur du soleil",
+        'good_answer' => "Jaune",
+        'anwser1' => "Blanc",
+        'anwser2' => "Noir",
+        'anwser3' => "Bleu",
+            
+    ),
+);
 
 ?>
+
+<script> 
+function correction() {
+    if (answer == <?php echo $quiz_data[2]; ?>) {
+        document.getElementById('correction').innerHTML = "Correct"
+    } else {
+        document.getElementById('correction').innerHTML = "Incorrect"
+    }
+}
+
+</script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,9 +55,9 @@
 <body class="font-body">
 
     <div class="mx-auto max-w-lg mt-20">
-        <h1 class="text-center text-4xl font-bold font-title">Quiz algo</h1>
+        <h1 class="text-center text-4xl font-bold font-title"><?= $titleQuiz ?></h1>
         <p class="text-center text-lg mt-10">Quel célèbre super-héro à pour origine la planète Krypton ? <br> 1/5</p>
-
+        <div id="correction"></div>
 
         <from method="POST" action="">
             <div class="grid lg:grid-cols-2 gap-2 md:gap-4 mt-10">
