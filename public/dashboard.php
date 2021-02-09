@@ -1,5 +1,5 @@
 <?php 
-require '../controller/connexion.php';
+require '../controller/connected.php';
 admin_loggin()
 ?>
 

@@ -24,7 +24,7 @@
 
                 <!-- Dropdown -->
 
-                <div id="dropdown" class="hidden absolute left-0 top-0 w-40 rounded-md shadow-lg bg-gray-800 ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                <div id="dropdown" class="hidden absolute left-0 top-0 w-40 rounded-md shadow-lg bg-gray-800 ring-2 ring-white ring-opacity-10" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                     <div class="py-1">
                         <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:text-gray-50" role="menuitem">TOUT</a>
                         <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:text-gray-50" role="menuitem">Nature</a>

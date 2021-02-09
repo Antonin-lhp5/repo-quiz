@@ -7,6 +7,7 @@ function is_connected(): bool
   return !empty($_SESSION['login']);
 }
 
+// redirection vers le login si l'utilisateur n'est pas connecté
 function admin_loggin(): void
 {
   if (!is_connected()) {
