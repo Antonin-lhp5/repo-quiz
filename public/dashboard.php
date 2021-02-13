@@ -1,6 +1,5 @@
 <?php 
-require '../controller/connected.php';
-admin_loggin()
+
 ?>
 
 <!doctype html>

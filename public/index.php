@@ -14,7 +14,7 @@ require_once "../datas/text-data.php";
 </head>
 
 <body class="bg-gray-900 text-gray-200 font-body">
-    <?php include '../view/menu.php'; ?>
+    <?php include '../view/menu2.php'; ?>
     <!-- head -->
 
     <header class="text-gray-300 bg-cover bg-fixed" style="background-image: url(img/leaf.jpg)">
@@ -102,9 +102,11 @@ require_once "../datas/text-data.php";
         </div>
     </section>
 
-    <!-- start -->
+<!-- start -->
     <div class="container flex flex-col justify-center items-center mx-auto my-8 py-10">
         <div style="background-image: url(img/leaf.jpg)" class="max-w-5xl bg-gray-300 h-64 w-full rounded-lg shadow-md bg-cover bg-center">
+       
+        
         </div>
 
         <!-- Card -->
@@ -131,20 +133,10 @@ require_once "../datas/text-data.php";
 
     </div>
     <!-- end -->
-<div class="flex justify-center">
-            <label class="mt-3">
-            <div class="p-5 bg-gray-800 rounded-lg"> 
-                <input type="radio" class="form-radio h-5 w-5 text-pink-600" ><span class="ml-2 text-gray-200">label</span>
-            </div>
-               
-                <input type="radio" class="form-radio h-5 w-5 text-pink-600" ><span class="ml-2 text-gray-700">label</span>
-                <input type="radio" class="form-radio h-5 w-5 text-pink-600" ><span class="ml-2 text-gray-700">label</span>
-            </label>
-</div>
+
 
     <?php include '../view/footer.php'; ?>
-
-
+    <script src="menu.js"></script>             
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 
 </body>

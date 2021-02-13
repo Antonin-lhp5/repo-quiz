@@ -106,10 +106,10 @@ if ($question == 0) {
 
                                                 <BR>Pourcentage des réponses corrects: <?php print $percentaje; ?> %
                                                 <BR><input type=submit value="Next >>">
-                                                <input type=hidden name=response value=0>
-                                                <input type=hidden name=question value=<?php print $question; ?>>
-                                                <input type=hidden name=ok value=<?php print $ok; ?>>
-                                                <input type=hidden name=Randon value=<?php print $randval; ?>>
+                                                <input type="" name=response value=0>
+                                                <input type="" name=question value=<?php print $question; ?>>
+                                                <input type="" name=ok value=<?php print $ok; ?>>
+                                                <input type="" name=Randon value=<?php print $randval; ?>>
                                                 <br><?php print $question + 1; ?> / <?php print $max; ?>
                                         </FORM>
                                         <HR>

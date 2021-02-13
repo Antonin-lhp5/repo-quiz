@@ -1,4 +1,4 @@
-const menuBtn = document.querySelector('#menu-btn')
+const menuBtn = document.querySelector('#dropdown-btn')
 const dropdown = document.querySelector('#dropdown')
 
 menuBtn.addEventListener('click', () => {
@@ -12,7 +12,7 @@ menuBtn.addEventListener('click', () => {
 // Detect all clicks on the document
 document.addEventListener('click', function(event) {
     // If user clicks inside the element, do nothing
-    if (event.target.closest('#menu-btn') ) return
+    if (event.target.closest('#dropdown-btn') ) return
     // If user clicks outside the element, hide it!
     dropdown.classList.add('hidden')
 })
