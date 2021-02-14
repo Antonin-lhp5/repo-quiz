@@ -4,7 +4,7 @@ if (isset($_POST['admin'])) {
     if (empty($_POST['username']) && empty($_POST['password'])) {
      $error = "Renseignez vos ID";
     }
-    if ($_POST['username'] === "root" && $_POST['password'] === "root") {
+    if ($_POST['username'] === "papa" && $_POST['password'] === "papounet") {
         session_start();
         $_SESSION['connecte'] = 1;
         header('location: /dashboard.php');

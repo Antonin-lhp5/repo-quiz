@@ -1,8 +1,8 @@
 <?php
 
-include '../view/header.php';
-include '../view/frontLibrary.php';
-include '../view/footer.php';
+require_once '../view/header.php';
+require_once '../view/quiz.html.php';
+require_once '../view/footer.php';
 
 ?>
 
