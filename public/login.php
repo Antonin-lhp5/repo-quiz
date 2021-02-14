@@ -1,5 +1,23 @@
-<?php 
-require '../controller/identifiants.php';
+<?php
+$error = null;
+if (isset($_POST['admin'])) {
+    if (empty($_POST['username']) && empty($_POST['password'])) {
+     $error = "Renseignez vos ID";
+    }
+    if ($_POST['username'] === "root" && $_POST['password'] === "root") {
+        session_start();
+        $_SESSION['connecte'] = 1;
+        header('location: /dashboard.php');
+    } else {
+        $error = "Identifiants incorrects";
+    }
+}
+
+require_once '../controller/auth.php';
+if (est_connecte()) {
+    header('Location: /dashboard.php');
+    exit();
+}    
 ?>
 
 <!doctype html>
@@ -16,12 +34,12 @@ require '../controller/identifiants.php';
 
     <div class="max-w-xs w-full m-auto">
         <h1 class="text-4xl font-title text-center mb-5 font-bold text-gray-200">Babla<span class="text-indigo-500">quiz</span></h1>
-        <?php if ($errorConnexion): ?>
-            <p class="bg-red-700 text-red-100 p-2 rounded-lg mb-2">
-                <?= $errorConnexion ?>
+        <?php if ($error) : ?>
+            <p class="bg-red-600 text-red-100 p-2 mb-2 text-center">
+                <?php echo $error ?>
             </p>
-        <?php endif; ?>
-       
+        <?php endif ?>
+
         <form action="" method="POST" class="bg-gray-700 rounded-lg p-5 ring-black ring-2 ring-opacity-10 shadow">
             <div class="mb-6">
                 <label class="block mb-2 text-gray-200" for="username">Identifiant</label>
@@ -35,7 +53,7 @@ require '../controller/identifiants.php';
 
 
             <div>
-                <button type="submit" name="connexion" class="w-full bg-pink-700 hover:bg-pink-600 text-gray-200 font-bold py-2 px-4 rounded outline-none">
+                <button type="submit" name="admin" class="w-full bg-pink-700 hover:bg-pink-600 text-gray-200 font-bold py-2 px-4 rounded outline-none">
                     Se connecter
                 </button>
             </div>

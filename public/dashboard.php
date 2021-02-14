@@ -1,22 +1,13 @@
-<?php 
-
+<?php
+require_once '../controller/auth.php';
+user_connecte();
+require_once '../view/header.php';
+require_once '../view/dashboard.html.php';
 ?>
 
-<!doctype html>
-<html lang="fr">
+<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+<script src="menu.js"></script>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="styles.css" rel="stylesheet">
-    <title>Administration</title>
-</head>
-
-<body class="bg-gray-900 text-gray-200 font-body">
-
-    <?php include '../view/dashboard.php'; ?>
-
-    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 </body>
 
 </html>

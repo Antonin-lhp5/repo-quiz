@@ -1,38 +1,3 @@
-<div class="bg-gray-800 shadow-lg h-16 flex items-center">
-  <div class="container mx-auto max-w-screen-xl">
-    <nav class="flex justify-between items-center pb-3 sm:pb-0 px-4 lg:px-0">
-      <div class="text-light tracking-wide space-x-4 hidden sm:flex">
-        <div class="font-bold select-none">Tableau de bord</div>
-        <a href="index.php" class="hover:text-white border-b-2 border-yellow-500">Bibliothèque</a>
-        <a href="explorer.php" class="border-b-2 border-pink-500 hover:text-white">Créer</a>
-      </div>
-      <div class="flex">
-        <div class="flex items-center select-none text-green-400">
-          <ion-icon name="ellipse-sharp"></ion-icon>
-          <div class="ml-2 mr-5">Connecté</div>
-        </div>
-        <div class="text-red-400">
-          <button class="flex underline">
-            <?php if (is_connected()) : ?>
-               <a href="/logout.php">Déconnexion</a>
-            <?php endif ?>
-            <span><svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
-              </svg></span>
-          </button>
-
-        </div>
-      </div>
-      <!-- hamburger -->
-      <button class="sm:hidden  focus:">
-        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-    </nav>
-  </div>
-</div>
-
 <div class="container mx-auto max-w-screen-xl">
   <div class="flex flex-wrap md:flex-nowrap pt-10 mx-5">
     <div class="flex flex-col w-full md:w-1/3 space-y-3 md:mr-10">
