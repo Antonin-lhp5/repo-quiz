@@ -18,6 +18,3 @@ $text_data = [
     ["category" => "Histoire",
         "icon" => "finger-print-outline",],
 ];
-
-
-?>
