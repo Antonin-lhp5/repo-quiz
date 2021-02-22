@@ -44,7 +44,7 @@
 
                 <div>
                     <a href="#" class="flex py-2 md:py-3 px-3 group rounded-lg bg-gray-800 ring-1 ring-black ring-opacity-10 shadow-lg hover:bg-gray-700 transition duration-300 ease-in-out">
-                        <img class="h-20 w-20 object-cover md:h-24 md:w-24 flex-shrink-0 rounded-lg" src="img/gameconsole.jpg" alt="">
+                        <img class="h-20 w-20 object-cover md:h-24 md:w-24 flex-shrink-0 rounded-lg" src="assets/img/gameconsole.jpg" alt="">
                         <div class="pl-5 py-1 space-y-1">
                             <h1 class="text-xs sm:text-sm">Loisirs</h1>
                             <h2 class="text-sm sm:text-base custom-truncate leading-tight group-hover:text-indigo-200">

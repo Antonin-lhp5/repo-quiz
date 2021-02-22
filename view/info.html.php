@@ -1,4 +1,4 @@
-<div class="bg-gray-900 pt-5 lg:pt-12">
+<div class="bg-gray-900 py-5 lg:py-12">
     <div class="container mx-auto max-w-screen-xl px-5 md:px-0 pb-5">
         <div class="flex flex-wrap md:flex-nowrap">
             <div class="w-full md:w-1/2 bg-black p-5 mb-3 md:mb-0 md:mr-5">
