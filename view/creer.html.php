@@ -4,7 +4,7 @@
     <div class="text-xl pb-3 px-2">Module de création de quiz</div>
     <div class="pb-3 px-2">Ajouter dans la bibliothèque</div>
     <div class="bg-gray-700 p-5 ring-black ring-2 ring-opacity-10 shadow">
-      <form action="" method="GET">
+      <form action="/" method="POST" novalidate>
         <div>
           <label class="block mb-2 text-gray-200" for="nameQuiz">Nom du quiz</label>
           <input class="w-full p-2 mb-6 text-gray-200 bg-gray-800 focus:border-transparent" type="text" name="nameQuiz" id="nameQuiz" placeholder="ex: L'origine de nos super-héros">
@@ -16,10 +16,10 @@
         <div class="w-1/2">
           <label class="block mb-2 text-gray-200" for="categoryQuiz">Catégorie du quiz</label>
           <select class="bg-gray-800" name="categoryQuiz" id="categoryQuiz">
-            <option selected disabled>Choix du patient</option>
+            <option selected disabled>Choix de la catégorie</option>
             <?php
-            foreach ($selectPatientsArray as $patient) { ?>
-              <option value="<?= $patient['id'] ?>"><?= $patient['lastname'] . ' ' . $patient['firstname'] ?></option>
+            foreach ($selectCategoryArray as $category) { ?>
+              <option value="<?= $category['id_Category'] ?>"><?= $category['qCategory'] ?></option>
             <?php
             } ?>
           </select>
