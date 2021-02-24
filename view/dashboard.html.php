@@ -25,7 +25,7 @@
     <div class="flex flex-col w-full md:w-2/3 text-gray-200 mt-5 md:mt-0">
       <div class="text-lg pb-3">Création du quiz</div>
 
-      <div class="pb-3">Objet</div>
+      <div class="pb-3">Étape 1 : ajouter dans la bibliothèque</div>
       <div class="bg-gray-700 p-5 ring-black ring-2 ring-opacity-10 shadow">
         <form action="" method="GET">
           <div>
@@ -48,14 +48,13 @@
             </select>
           </div>
 
-
-          <button class="mt-5 bg-green-600 hover:bg-green-700 text-gray-200 font-bold py-2 px-4 rounded outline-none" type="submit" value="">
-            Publier
+          <button class="mt-5 bg-green-600 hover:bg-green-700 text-gray-200 font-bold py-2 px-4 rounded outline-none" name="create-quiz" type="submit" value="">
+            Valider
           </button>
         </form>
       </div>
 
-      <div class="pb-3 mt-5">Éditeur </div>
+      <div class="pb-3 mt-5">Étape 2 : ajouter les questions et réponses</div>
       <div class="bg-gray-700 p-5 shadow mb-20">
         <form action="">
           <label class="block mb-2 text-gray-200" for="titleQuiz">La question</label>
@@ -74,8 +73,8 @@
           <input class="w-full p-2 mb-6 text-gray-200  bg-gray-800 focus:border-transparent" type="text" name="fourthWrong" id="fourthWrong" placeholder="ex: Wolverine">
 
           <div>
-            <button class="bg-blue-600 hover:bg-blue-700 text-gray-200 font-bold py-2 px-4 rounded " type="submit" value="">
-              Envoyer
+            <button class="bg-blue-600 hover:bg-blue-700 text-gray-200 font-bold py-2 px-4 rounded" name="create-question" type="submit" value="">
+              Ajouter
             </button>
           </div>
         </form>

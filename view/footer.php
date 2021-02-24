@@ -1,3 +1,4 @@
+
 <footer class="py-5 border-t border-gray-500">
     <div class="flex justify-center">
         <ul class="flex text-gray-400 text-sm">
@@ -12,9 +13,10 @@
     </div>
 </footer>
 
+
+
 <script src="assets/js/menu.js"></script>
 <script src="assets/js/dropdown.js"></script>
-
 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 
 </body>

@@ -8,3 +8,11 @@ SELECT qTitle as `titre`, qCategory as `categorie`, qImg as `image` ,qQuestion a
 INNER JOIN question ON anwser.id_anwser = question.id_question
 INNER JOIN library ON question.id_question = library.id_library
 INNER join category ON library.id_category = category.id_category
+
+qTitle, qImg, qCategory, qQuestion, goodOption, option1, option2, option3
+
+SELECT *
+FROM blablaquiz.anwser
+INNER JOIN question ON anwser.id_anwser = question.id_question
+INNER JOIN library ON question.id_question = library.id_library
+INNER join category ON library.id_category = category.id_category;

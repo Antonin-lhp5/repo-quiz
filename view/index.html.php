@@ -53,7 +53,7 @@
 </section>
 
 <section id="news" class="bg-gray-900">
-    <div class="container mx-auto max-w-screen-lg">
+    <div class="container mx-auto max-w-screen-xl">
         <div class="flex justify-center items-center px-2 py-8 lg:">
             <ion-icon class="mr-3 w-6 h-6 text-indigo-400" name="megaphone"></ion-icon>
             <h1 class="tracking-wide text-xl font-semibold sm:text-2xl font-title">Nouveau sur Blabla<span class="text-indigo-400">quiz</span></h1>
