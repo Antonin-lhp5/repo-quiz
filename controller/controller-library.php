@@ -7,3 +7,4 @@ require_once '../model/quiz.php';
 $quizObj = new Quiz;
 $allQuizArray = $quizObj->getAllQuiz();
 
+

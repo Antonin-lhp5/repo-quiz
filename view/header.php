@@ -15,9 +15,9 @@ require_once '../controller/dashboard.ctrl.php';
   <title>Blablaquiz</title>
 </head>
 
-<body class="bg-gray-900 text-gray-200 font-body h-full">
+<body class="bg-gray-900 text-gray-200 font-body min-h-screen	flex flex-col">
   <!-- navbar goes here -->
-  <nav class="bg-gray-800">
+  <nav class="bg-gray-800 flex-initial">
     <div class="max-w-6xl mx-auto px-4">
       <div class="flex justify-between">
 
@@ -71,3 +71,5 @@ require_once '../controller/dashboard.ctrl.php';
       <?php endif ?>
     </div>
   </nav>
+
+  <div class="flex-auto">

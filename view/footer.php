@@ -1,5 +1,7 @@
 
-<footer class="py-5 border-t border-gray-500">
+</div>
+
+<footer class="py-5 border-t border-gray-500 w-full flex-initial">
     <div class="flex justify-center">
         <ul class="flex text-gray-400 text-sm">
             <li class="hover:text-white hover:underline"><a href="#">Contact</a></li>
