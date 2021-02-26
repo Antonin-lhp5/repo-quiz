@@ -2,13 +2,12 @@
   <div class="flex flex-col w-full text-gray-200 mt-5 md:mt-0">
     <div class="text-xl pb-3 px-2">Module de création de quiz</div>
     <div class="pb-3 px-2">Ajouter dans la bibliothèque</div>
-
     <div class="bg-gray-700 p-5 ring-black ring-2 ring-opacity-10 shadow">
       <form action="" method="POST" enctype="multipart/form-data" novalidate>
         <div>
           <label class="block mb-2 text-gray-200" for="titleQuiz">Nom du quiz <span class="text-red-500 ml-2"><?= $errors['titleQuiz'] ?? '' ?></span></label>
        
-          <input class="w-full p-2 mb-6 text-gray-200 bg-gray-800 focus:border-transparent" type="text" name="titleQuiz" id="titleQuiz" placeholder="ex: L'origine de nos super-héros">
+          <input class="w-full p-2 mb-6 text-gray-200 bg-gray-800 focus:border-transparent" type="text" name="titleQuiz" id="titleQuiz" value=" <?= isset($_POST['titleQuiz']) ? htmlspecialchars($_POST['titleQuiz']) : '' ?>" placeholder="ex: L'origine de nos super-héros">
         </div>
         <div>
           <label class="block mb-2 text-gray-200" for="imgQuiz">Image du quiz <span class="text-red-500 ml-2"><?= $errors['imgQuiz'] ?? '' ?></span></label>
@@ -20,7 +19,7 @@
             <option selected disabled>Choix de la catégorie</option>
             <?php
             foreach ($allCategoryArray as $category) { ?>
-              <option value="<?= $category['id_category'] ?>"><?= $category['categorie'] ?></option>
+              <option value="<?= $category['id_category'] ?>" <?php echo isset($_POST['categoryQuiz']) && $_POST['categoryQuiz'] == $category['id_category'] ? 'selected' : '' ?>><?= $category['categorie'] ?></option>
             <?php
             } ?>
           </select>
