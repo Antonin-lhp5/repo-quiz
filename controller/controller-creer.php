@@ -8,7 +8,7 @@ $allCategoryArray = $categoryObj->getAllCategory();
 
 // regex 
 $errors = [];
-$regexTitle = '/^[a-z0-9 _-]{3,150}$/';
+$regexTitle = '/^[A-zÀ-û 0-9œ\-\',?%ç]+$/';
 
 var_dump($_POST, $_FILES);
 
