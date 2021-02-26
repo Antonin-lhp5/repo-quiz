@@ -13,7 +13,7 @@
 			<tbody class="bg-gray-800 divide-y divide-gray-200">
 				<?php foreach ($allQuizArray as $element) { ?>
 					<tr>
-						<td class="px-2 py-4 whitespace-nowrap"><?= $element['image'] ?></td>
+						<td class="px-2 py-4 whitespace-nowrap"><img class="h-20 w-20 object-cover md:h-24 md:w-24 flex-shrink-0 rounded-lg" src="assets/upload<?= $element['image'] ?>" alt=""></td>
 						<td class="px-2 py-4 whitespace-nowrap"><?= $element['titre'] ?></td>
 						<td class="px-2 py-4 whitespace-nowrap"><?= $element['categorie'] ?></td>
 

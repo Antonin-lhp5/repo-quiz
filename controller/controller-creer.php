@@ -13,8 +13,6 @@ $addQuizInBase = false;
 $errors = [];
 $regexTitle = '/^[A-zÀ-û 0-9œ\-\',?%ç]+$/';
 
-var_dump($_POST, $_FILES);
-
 // vérification du fu 
 
 if (isset($_POST['addQuiz'])) {
@@ -77,7 +75,7 @@ if (isset($_POST['addQuiz'])) {
             'qImg' => $newUploadedFileName . '.' . $fileExtension,
             'id_category' => htmlspecialchars($_POST['categoryQuiz']),
         ];
-        var_dump($quizInfo);
+
         if ($quizObj->addQuiz($quizInfo)) {
             $addQuizInBase = true;
             $messages['addQuiz'] = 'Quiz enregistré';
