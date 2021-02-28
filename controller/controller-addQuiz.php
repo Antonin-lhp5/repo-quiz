@@ -13,7 +13,7 @@ $addQuizInBase = false;
 $errors = [];
 $regexTitle = '/^[A-zÀ-û 0-9œ\-\',?%ç]+$/';
 
-// vérification du fu 
+
 
 if (isset($_POST['addQuiz'])) {
 
@@ -35,7 +35,7 @@ if (isset($_POST['addQuiz'])) {
         $extensionsAllowed = ['image/jpeg', 'image/png']; 
         $mimeTypeUploadedFile = mime_content_type($_FILES['imgQuiz']['tmp_name']);
         if (in_array($mimeTypeUploadedFile, $extensionsAllowed)) {
-            if ($_FILES['imgQuiz']['size'] <= 5000000) {
+            if ($_FILES['imgQuiz']['size'] <= 50000) {
                 $pathInfoUploadedFile = pathinfo($_FILES['imgQuiz']['name']);
                 $newUploadedFileName = uniqid($pathInfoUploadedFile['filename']);
                 $fileExtension = $pathInfoUploadedFile['extension'];
@@ -84,3 +84,4 @@ if (isset($_POST['addQuiz'])) {
         }
     }
 }
+
