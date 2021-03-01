@@ -17,7 +17,7 @@ $regexTitle = '/^[A-zÀ-û 0-9œ\-\',?%ç]+$/';
 
 if (isset($_POST['addQuiz'])) {
 
-    // check input nameQuiz
+    // check titre du quiz
     if (isset($_POST['titleQuiz'])) {
 
         if (!preg_match($regexTitle, $_POST['titleQuiz'])) {
@@ -30,7 +30,6 @@ if (isset($_POST['addQuiz'])) {
     }
 
     // check image
-
     if (isset($_FILES['imgQuiz']) && $_FILES['imgQuiz']['error'] == 0) {
         $extensionsAllowed = ['image/jpeg', 'image/png']; 
         $mimeTypeUploadedFile = mime_content_type($_FILES['imgQuiz']['tmp_name']);
@@ -57,7 +56,6 @@ if (isset($_POST['addQuiz'])) {
     }
 
     // check select 
-
     if (isset($_POST['categoryQuiz'])) {
 
         if (empty($_POST['categoryQuiz'])) {
