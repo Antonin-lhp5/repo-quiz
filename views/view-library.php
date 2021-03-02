@@ -19,12 +19,12 @@
 						<td class="px-5 py-4 whitespace-nowrap"><?= $quiz['categorie'] ?></td>
 
 						<td class="px-5 py-4 whitespace-nowrap">
-							<button class="bg-gray-700 mx-auto hover:bg-gray-600 text-white text-sm px-4 py-2">
-								Modifier
-							</button>
-							<button class="bg-blue-700 mx-auto hover:bg-blue-600 text-white text-sm px-4 py-2">
+							<a href="detailsQuiz.php?idQuiz=<?= $quiz['id_library']?>" name="idQuiz" class="bg-gray-700 mx-auto hover:bg-gray-600 text-white text-sm px-4 py-2 mr-3">
+								détails
+							</a>
+							<a href="" class="bg-blue-700 mx-auto hover:bg-blue-600 text-white text-sm px-4 py-2">
 								+ Questions
-							</button>
+							</a>
 						</td>
 						<td class="px-5 py-4 whitespace-nowrap flex items-center">
 							<select value="user.role" class="bg-gray-800 mr-4">
