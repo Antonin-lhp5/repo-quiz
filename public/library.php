@@ -1,7 +1,7 @@
 <?php 
-require_once '../controller/dashboard.ctrl.php';
+require_once '../controllers/controller-dashboard.php';
 user_connecte();
-require_once '../controller/controller-library.php';
-require_once '../view/header.php';
-require_once '../view/library.html.php';
-require_once '../view/footer.php';
+require_once '../controllers/controller-library.php';
+require_once '../views/header.php';
+require_once '../views/view-library.php';
+require_once '../views/footer.php';

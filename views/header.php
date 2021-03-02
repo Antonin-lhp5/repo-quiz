@@ -2,7 +2,7 @@
 if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
-require_once '../controller/dashboard.ctrl.php';
+require_once '../controllers/controller-dashboard.php';
 ?>
 
 <!doctype html>
