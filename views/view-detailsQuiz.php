@@ -1,7 +1,7 @@
 <div class="container mx-auto max-w-screen-md md:py-10">
   <div class="flex flex-col w-full text-gray-200 mt-5 md:mt-0">
     <div class="text-xl pb-3 px-2">Module de création de quiz</div>
-    <div class="pb-3 px-2">Modifier le quiz</div>
+    <div class="pb-3 px-2">Détails du quiz</div>
 
     <?php
     // Nous testons si nous arrivons à obtenir les infos du quiz sous forme d'un tableau

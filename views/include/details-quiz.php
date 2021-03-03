@@ -21,8 +21,9 @@
 
         <form action="modifyQuiz.php" method="POST">
             <button type="submit" class="mt-5 bg-gray-600 hover:bg-gray-700 text-gray-200 font-bold py-2 px-4 rounded outline-none" name="modifyQuiz" value="<?= $detailsQuizArray['idQuiz'] ?>">Modifier</button>
-            <a type="button" href="library.php" class="mt-5 bg-gray-600 hover:bg-gray-700 text-gray-200 font-bold py-2 px-4 rounded outline-none">Retour</a>
+          
         </form>
+        <a type="button" href="library.php" class="mt-5 bg-gray-900 hover:bg-gray-800 text-gray-200 font-bold py-2 px-4 rounded outline-none">Retour</a>
 
     </div>
 </div>

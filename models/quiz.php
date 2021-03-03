@@ -91,7 +91,7 @@ class Quiz extends Database
         }
     }
 
-    public function udapteQuiz(array $quizInfo)
+    public function updateQuiz(array $quizInfo)
     {
         // requête me permettant de modifier mon quiz 
         $query =  'UPDATE `blablaquiz`.`library` SET
