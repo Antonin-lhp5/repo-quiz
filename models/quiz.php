@@ -90,4 +90,29 @@ class Quiz extends Database
             return false;
         }
     }
+
+    public function udapteQuiz(array $quizInfo)
+    {
+        // requête me permettant de modifier mon quiz 
+        $query =  'UPDATE `blablaquiz`.`library` SET
+        `qTitle` = :qTitle,
+        `qImg` = :qImg,
+        `id_category` = :id_category,
+
+        WHERE id_library = :idQuiz';
+
+        // je prépare ma requête à l'aide de la methode prepare pour me prémunir des injections SQL
+        $updateQuizQuery = $this->database->prepare($query);
+
+        // je bind mes valeurs à l'aide de la methode bindvalue()
+        $updateQuizQuery->bindValue(':qTitle', $quizInfo['qTitle'], PDO::PARAM_STR);
+        $updateQuizQuery->bindValue(':qImg', $quizInfo['qImg'], PDO::PARAM_STR);
+        $updateQuizQuery->bindValue(':id_category', $quizInfo['id_category'], PDO::PARAM_STR);
+
+        if ($updateQuizQuery->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
