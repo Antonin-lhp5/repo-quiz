@@ -13,7 +13,7 @@ if (isset($_POST['admin'])) {
     }
 }
 
-require_once '../controller/dashboard.ctrl.php';
+require_once '../controllers/controller-dashboard.php';
 if (est_connecte()) {
     header('Location: /dashboard.php');
     exit();

@@ -1,6 +1,6 @@
 <?php
-require_once '../controller/dashboard.ctrl.php';
+require_once '../controllers/controller-dashboard.php';
 user_connecte();
-require_once '../view/header.php';
-require_once '../view/dashboard.html.php';
-require_once '../view/footer.php';
+require_once '../views/header.php';
+require_once '../views/view-dashboard.php';
+require_once '../views/footer.php';
