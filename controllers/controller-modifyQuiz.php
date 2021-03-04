@@ -3,6 +3,7 @@
 
 require_once '../models/database.php';
 require_once '../models/quiz.php';
+var_dump($_POST);
 
 // regex 
 $errors = [];
@@ -25,6 +26,7 @@ if (!empty($_POST['modifyQuiz'])) {
     $quizInfoArray = $quizObj->getDetailsQuiz($_POST['modifyQuiz']);
     // Pour plus de sécurité, je stock l'id du quiz à modifier dans une variable de session
     $_SESSION['idQuizToUpdate'] = $quizInfoArray['id_library'];
+    var_dump($quizInfoArray);
 }
 
 if (isset($_POST['updateQuizBtn'])) {
@@ -85,7 +87,7 @@ if (isset($_POST['updateQuizBtn'])) {
             'qImg' => $newUploadedFileName . '.' . $fileExtension,
             'id_category' => htmlspecialchars($_POST['categoryQuiz']),
             // je recupère mon id que j'ai stocké dans ma variable de session
-            'id_library' => $_SESSION['idQuizToUpdate']
+            // 'id_library' => $_SESSION['idQuizToUpdate']
         ];
 
         if ($quizObj->updateQuiz($quizInfo)) {

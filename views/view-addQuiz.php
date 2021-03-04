@@ -28,24 +28,24 @@
         </div>
       </div>
 
-      <section class="flex flex-col mx-auto md:flex-row justify-center md:h-48 mb-12 sm:mt-12">
-        <div class="shadow-lg flex flex-col-reverse sm:flex-row w-full max-w-2xl">
+      <section class="flex w-full flex-col mx-auto md:flex-row justify-center md:h-48 mb-12 sm:mt-12">
+        <div class="shadow-lg flex flex-col-reverse sm:flex-row w-full">
           <div class="w-full bg-blue-900 p-4 text-white text-center flex flex-col justify-center ">
 
             <h2 class="text-lg">Espace questions</h2>
             <p class="text-md mt-2">Ajoutez vos questions et réponses</p>
-            <button class="bg-blue-700 mx-auto hover:bg-blue-600 mt-4 text-white text-sm px-4 py-2 w-3/5">
+            <a class="bg-blue-700 mx-auto hover:bg-blue-600 mt-4 text-white text-sm px-4 py-2 w-3/5">
               Ajouter
-            </button>
+            </a>
 
           </div>
           <div class="w-full bg-purple-900 p-4 text-white text-center flex flex-col justify-center ">
 
             <h2 class="text-lg">Quiz</h2>
             <p class="text-md mt-2">Retournez à la bibliothèque des quiz</p>
-            <button class="bg-purple-700 mx-auto hover:bg-purple-600 mt-4 text-white text-sm px-4 py-2 w-3/5">
+            <a href="library.php" class="bg-purple-700 mx-auto hover:bg-purple-600 mt-4 text-white text-sm px-4 py-2 w-3/5">
               Quiz
-            </button>
+            </a>
 
           </div>
         </div>
