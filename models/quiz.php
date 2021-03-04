@@ -96,8 +96,7 @@ class Quiz extends Database
         // requête me permettant de modifier mon quiz 
         $query =  'UPDATE `blablaquiz`.`library` SET
         `qTitle` = :qTitle,
-        `qImg` = :qImg,
-        `id_category` = :id_category,
+        `id_category` = :id_category
 
         WHERE id_library = :idQuiz';
 
@@ -106,8 +105,8 @@ class Quiz extends Database
 
         // je bind mes valeurs à l'aide de la methode bindvalue()
         $updateQuizQuery->bindValue(':qTitle', $quizInfo['qTitle'], PDO::PARAM_STR);
-        $updateQuizQuery->bindValue(':qImg', $quizInfo['qImg'], PDO::PARAM_STR);
         $updateQuizQuery->bindValue(':id_category', $quizInfo['id_category'], PDO::PARAM_STR);
+        $updateQuizQuery->bindValue(':idQuiz', $quizInfo['id_library'], PDO::PARAM_STR);
 
         if ($updateQuizQuery->execute()) {
             return true;

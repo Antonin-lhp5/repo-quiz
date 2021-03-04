@@ -5,6 +5,10 @@ require_once '../models/database.php';
 require_once '../models/quiz.php';
 var_dump($_POST);
 
+
+$categoryObj = new Quiz;
+$allCategoryArray = $categoryObj->getAllCategory();
+
 // regex 
 $errors = [];
 $regexTitle = '/^[A-zÀ-û 0-9œ\-\',?%ç]+$/';
@@ -24,8 +28,7 @@ if (!empty($_POST['modifyQuiz'])) {
     $quizObj = new Quiz;
     // Nous allons récupérer les informations de notre quiz nous permettant de pré-remplir le formulaire
     $quizInfoArray = $quizObj->getDetailsQuiz($_POST['modifyQuiz']);
-    // Pour plus de sécurité, je stock l'id du quiz à modifier dans une variable de session
-    $_SESSION['idQuizToUpdate'] = $quizInfoArray['id_library'];
+ 
     var_dump($quizInfoArray);
 }
 
@@ -43,31 +46,31 @@ if (isset($_POST['updateQuizBtn'])) {
         }
     }
 
-    // check image
-    if (isset($_FILES['imgQuiz']) && $_FILES['imgQuiz']['error'] == 0) {
-        $extensionsAllowed = ['image/jpeg', 'image/png'];
-        $mimeTypeUploadedFile = mime_content_type($_FILES['imgQuiz']['tmp_name']);
-        if (in_array($mimeTypeUploadedFile, $extensionsAllowed)) {
-            if ($_FILES['imgQuiz']['size'] <= 50000) {
-                $pathInfoUploadedFile = pathinfo($_FILES['imgQuiz']['name']);
-                $newUploadedFileName = uniqid($pathInfoUploadedFile['filename']);
-                $fileExtension = $pathInfoUploadedFile['extension'];
-                $targetDirectory = 'assets/upload';
-                $newUploadedFileNamePlusTargetDirectory = $targetDirectory . $newUploadedFileName . '.' . $fileExtension;
-                if (move_uploaded_file($_FILES['imgQuiz']['tmp_name'], $newUploadedFileNamePlusTargetDirectory)) {
-                    $message = 'Quiz enregistré !';
-                } else {
-                    $errors['imgQuiz'] = 'Une erreur est survenue lors de l\'upload du fichier, veuillez réessayer';
-                }
-            } else {
-                $errors['imgQuiz'] = 'Votre fichier est trop lourd, la taille maximale est de 5MB.';
-            }
-        } else {
-            $errors['imgQuiz'] = 'Veuillez choisir un fichier image (jpeg / jpg, png).';
-        }
-    } else {
-        $errors['imgQuiz'] = 'Votre fichier n\'a pu être envoyé, veuillez réessayer.';
-    }
+    // // check image
+    // if (isset($_FILES['imgQuiz']) && $_FILES['imgQuiz']['error'] == 0) {
+    //     $extensionsAllowed = ['image/jpeg', 'image/png'];
+    //     $mimeTypeUploadedFile = mime_content_type($_FILES['imgQuiz']['tmp_name']);
+    //     if (in_array($mimeTypeUploadedFile, $extensionsAllowed)) {
+    //         if ($_FILES['imgQuiz']['size'] <= 50000) {
+    //             $pathInfoUploadedFile = pathinfo($_FILES['imgQuiz']['name']);
+    //             $newUploadedFileName = uniqid($pathInfoUploadedFile['filename']);
+    //             $fileExtension = $pathInfoUploadedFile['extension'];
+    //             $targetDirectory = 'assets/upload';
+    //             $newUploadedFileNamePlusTargetDirectory = $targetDirectory . $newUploadedFileName . '.' . $fileExtension;
+    //             if (move_uploaded_file($_FILES['imgQuiz']['tmp_name'], $newUploadedFileNamePlusTargetDirectory)) {
+    //                 $message = 'Quiz enregistré !';
+    //             } else {
+    //                 $errors['imgQuiz'] = 'Une erreur est survenue lors de l\'upload du fichier, veuillez réessayer';
+    //             }
+    //         } else {
+    //             $errors['imgQuiz'] = 'Votre fichier est trop lourd, la taille maximale est de 5MB.';
+    //         }
+    //     } else {
+    //         $errors['imgQuiz'] = 'Veuillez choisir un fichier image (jpeg / jpg, png).';
+    //     }
+    // } else {
+    //     $errors['imgQuiz'] = 'Votre fichier n\'a pu être envoyé, veuillez réessayer.';
+    // }
 
     // check select 
     if (isset($_POST['categoryQuiz'])) {
@@ -84,15 +87,14 @@ if (isset($_POST['updateQuizBtn'])) {
         // Création d'un tableau contenant toutes les infos du formulaire
         $quizInfo = [
             'qTitle' => htmlspecialchars($_POST['titleQuiz']),
-            'qImg' => $newUploadedFileName . '.' . $fileExtension,
             'id_category' => htmlspecialchars($_POST['categoryQuiz']),
             // je recupère mon id que j'ai stocké dans ma variable de session
-            // 'id_library' => $_SESSION['idQuizToUpdate']
+            'id_library' => $_POST['updateQuizBtn']
         ];
 
         if ($quizObj->updateQuiz($quizInfo)) {
-            $addQuizInBase = true;
-            $messages['updateQuiz'] = 'Quiz modifié';
+            $updateQuizInBase = true;
+            $messages['updateQuiz'] = 'Les modifications ont bien été prises en compte';
         } else {
             $messages['updateQuiz'] = 'Erreur de connexion lors de la modification';
         }
