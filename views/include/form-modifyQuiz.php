@@ -19,10 +19,9 @@
                 } ?>
             </select>
 
-            <button type="submit" class="mt-5 bg-green-600 hover:bg-green-700 text-gray-200 font-bold py-2 px-4 rounded outline-none" name="updateQuizBtn" value="<?= $_POST['modifyQuiz'] ?>">Modifier</button>
-
-            <a type="button" href="library.php" class="mt-5 bg-gray-900 hover:bg-gray-800 text-gray-200 font-bold py-2 px-4 rounded outline-none">Retour</a>
-
+            <div><button type="submit" class="mt-5 bg-green-600 hover:bg-green-700 text-gray-200 font-bold py-2 px-4 rounded outline-none" name="updateQuizBtn" value="<?= $_POST['modifyQuiz'] ?>">Modifier</button>
+                <a type="button" href="library.php" class="mt-5 bg-gray-900 hover:bg-gray-800 text-gray-200 font-bold py-2 px-4 rounded outline-none">Retour</a>
+            </div>
         </div>
     </div>
 </form>

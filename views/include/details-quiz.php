@@ -20,10 +20,9 @@
         </select>
         <div class="flex mt-5">
             <form action="modifyQuiz.php" method="POST">
-                <button type="submit" class="bg-gray-900 hover:bg-gray-800 text-gray-200 font-bold py-2 px-4 mr-3 rounded outline-none" name="modifyQuiz" value="<?= $detailsQuizArray['id_library'] ?>">Modifier</button>
-
+                <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-gray-200 font-bold py-2 px-4 rounded focus:outline-none mr-3" name="modifyQuiz" value="<?= $detailsQuizArray['id_library'] ?>">Modifier</button>
             </form>
-            <a type="button" href="library.php" class="bg-gray-900 hover:bg-gray-800 text-gray-200 font-bold py-2 px-4 rounded outline-none">Retour</a>
+            <a type="button" href="library.php" class="bg-gray-900 hover:bg-gray-800 text-gray-200 font-bold py-2 px-4 rounded">Retour</a>
         </div>
 
     </div>

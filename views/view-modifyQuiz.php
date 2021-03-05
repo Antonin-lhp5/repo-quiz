@@ -24,14 +24,14 @@
                 </div>
             </div>
             <div class="text-center mt-4">
-                <a type="button" href="library.php" class="bg-purple-700 mx-auto hover:bg-purple-600 text-white text-sm px-4 py-2">Bibliothèque</a>
+                <a type="button" href="library.php" class="bg-purple-700 mx-auto hover:bg-purple-600 text-white text-lg px-4 py-2">Bibliothèque</a>
             </div>
         <?php
             // si aucune condition n'est remplie, cela nous indique que l'utilisateur a directement saisi l'URL, nous lui indiquons donc via un message
         } else { ?>
             <p class="text-lg text-center text-red-500"><?= $messages['updateQuiz'] ?? '' ?></p>
             <div class="text-center mt-4">
-                <a type="button" href="library.php" class="bg-purple-700 mx-auto hover:bg-purple-600 text-white text-sm px-4 py-2">Bibliothèque</a>
+                <a type="button" href="library.php" class="bg-purple-700 mx-auto hover:bg-purple-600 text-white px-4 py-2 text-lg">Retour à la Bibliothèque</a>
             </div>
         <?php
         } ?>
