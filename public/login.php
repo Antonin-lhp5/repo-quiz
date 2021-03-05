@@ -15,7 +15,7 @@ if (isset($_POST['admin'])) {
 
 require_once '../controllers/controller-dashboard.php';
 if (est_connecte()) {
-    header('Location: /dashboard.php');
+    header('Location: /library.php');
     exit();
 }    
 ?>
