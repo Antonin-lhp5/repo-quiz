@@ -1,5 +1,5 @@
 <?php
-
+var_dump($_SESSION);
 require_once '../models/database.php';
 require_once '../models/quiz.php';
 
@@ -10,6 +10,11 @@ $addQuestionInBase = false;
 $errors = [];
 $regexText = '/^[A-zÀ-û 0-9œ\-\',?%ç]+$/';
 
+$quizObj = new Quiz;
+
+if (isset($_GET['idQuiz'])) {
+    $_SESSION['idQuiz'] = $_GET['idQuiz'];
+}
 
 if (isset($_POST['addQuestionBtn'])) {
 
@@ -32,7 +37,7 @@ if (isset($_POST['addQuestionBtn'])) {
         // Création d'un tableau contenant toutes les infos du formulaire
         $quizInfo = [
             'qQuestion' => htmlspecialchars($_POST['questionQuiz']),
-           
+            'id_library'=> $_SESSION['idQuiz']
         ];
 
         if ($quizObj->addQuestion($quizInfo)) {

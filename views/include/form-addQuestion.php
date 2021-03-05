@@ -1,7 +1,7 @@
 <div class="pb-3">Ajouter les questions et réponses</div>
 <div class="bg-gray-700 p-5 ring-black ring-2 ring-opacity-10 shadow mb-20">
     <form action="" method="POST">
-        <label class="block mb-2 text-gray-200" for="questionQuiz">La question</label>
+        <label class="block mb-2 text-gray-200" for="questionQuiz">La question <span class="text-red-500 ml-2"><?= $errors['questionQuiz'] ?? '' ?></span></label>
         <input class="w-full p-2 mb-6 text-gray-200 bg-gray-800 focus:border-transparent" type="text" name="questionQuiz" id="questionQuiz" placeholder="ex: Quel célèbre super-héro à pour origine la planère Krypton ?">
 
         <label class="block mb-2 text-gray-200" for="goodAnswer">Bonne réponse <ion-icon class="text-green-400" name="checkmark-circle"></ion-icon></label>

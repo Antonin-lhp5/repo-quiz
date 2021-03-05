@@ -1,5 +1,4 @@
 <?php
-// session_start();
 
 require_once '../models/database.php';
 require_once '../models/quiz.php';
@@ -62,7 +61,7 @@ if (isset($_POST['updateQuizBtn'])) {
         $quizInfo = [
             'qTitle' => htmlspecialchars($_POST['titleQuiz']),
             'id_category' => htmlspecialchars($_POST['categoryQuiz']),
-            // je recupère mon id que j'ai stocké dans ma variable de session
+            // je recupère mon id que j'ai stocké
             'id_library' => $_POST['updateQuizBtn']
         ];
 
