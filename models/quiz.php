@@ -114,4 +114,25 @@ class Quiz extends Database
             return false;
         }
     }
+
+    public function addQuestion(array $quizQuestion)
+    {
+        // requête me permettant d'ajouter une question à l'id_library d'un quiz 
+        $query = 'INSERT INTO `blablaquiz`.`question` (`qQuestion`, `id_library`)
+        VALUES (:qQuestion, :id_library)';
+
+        // Nous preparons notre requete à l'aide de la methode prepare
+        $addQuestionQuery = $this->database->prepare($query);
+
+        // je bind mes valeurs à l'aide de la methode bindvalue()
+        $addQuestionQuery->bindValue(':qQuestion', $quizQuestion['qQuestion'], PDO::PARAM_STR);
+        $addQuestionQuery->bindValue(':id_library', $quizQuestion['id_library'], PDO::PARAM_STR);
+
+         // test et execution de la requête pour afficher message erreur
+         if ($addQuestionQuery->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

@@ -22,7 +22,7 @@
 							<a href="detailsQuiz.php?idQuiz=<?= $quiz['id_library']?>" name="idQuiz" class="bg-gray-700 mx-auto hover:bg-gray-600 text-white text-sm px-4 py-2 mr-3">
 								détails
 							</a>
-							<a href="" class="bg-blue-700 mx-auto hover:bg-blue-600 text-white text-sm px-4 py-2">
+							<a href="addQuestion.php?idQuiz=<?$quiz['id_library']?>" class="bg-blue-700 mx-auto hover:bg-blue-600 text-white text-sm px-4 py-2">
 								+ Questions
 							</a>
 						</td>
