@@ -26,7 +26,6 @@ if (!empty($_POST['modifyQuiz'])) {
     // Nous allons récupérer les informations de notre quiz nous permettant de pré-remplir le formulaire
     $quizInfoArray = $quizObj->getDetailsQuiz($_POST['modifyQuiz']);
  
-    var_dump($quizInfoArray);
 }
 
 if (isset($_POST['updateQuizBtn'])) {
