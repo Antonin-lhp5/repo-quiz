@@ -118,19 +118,63 @@ class Quiz extends Database
     public function addQuestion(array $quizQuestion)
     {
         // requête me permettant d'ajouter une question à l'id_library d'un quiz 
-        $query = 'INSERT INTO `blablaquiz`.`question` (`qQuestion`, `id_library`)
+        $queryQuestion = 'INSERT INTO `blablaquiz`.`question` (`qQuestion`, `id_library`)
         VALUES (:qQuestion, :id_library)';
 
         // Nous preparons notre requete à l'aide de la methode prepare
-        $addQuestionQuery = $this->database->prepare($query);
+        $addQuestionQuery = $this->database->prepare($queryQuestion);
 
         // je bind mes valeurs à l'aide de la methode bindvalue()
         $addQuestionQuery->bindValue(':qQuestion', $quizQuestion['qQuestion'], PDO::PARAM_STR);
         $addQuestionQuery->bindValue(':id_library', $quizQuestion['id_library'], PDO::PARAM_STR);
 
-         // test et execution de la requête pour afficher message erreur
-         if ($addQuestionQuery->execute()) {
-            return true;
+        // requête me permettant d'ajouter des réponses à l'id_library d'un quiz
+        $queryAnswer = 'INSERT INTO `anwser` (`goodOption`, `option1`, `option2`, `option3`, `id_question`)
+        VALUES (:goodOption, :option1, :option2, :option3, :id_question)';
+
+        // Nous preparons notre requete à l'aide de la methode prepare
+        $addAnswerQuery = $this->database->prepare($queryAnswer);
+
+        // je bind mes valeurs à l'aide de la methode bindvalue()
+        $addAnswerQuery->bindValue(':goodOption', $quizQuestion['goodOption'], PDO::PARAM_STR);
+        $addAnswerQuery->bindValue(':option1', $quizQuestion['option1'], PDO::PARAM_STR);
+        $addAnswerQuery->bindValue(':option2', $quizQuestion['option2'], PDO::PARAM_STR);
+        $addAnswerQuery->bindValue(':option3', $quizQuestion['option3'], PDO::PARAM_STR);
+
+        // test et execution de la requête pour afficher message erreur
+        if ($addQuestionQuery->execute()) {
+            var_dump("etape 1");
+            $idQuestion = $this->database->lastInsertId();
+
+            $addAnswerQuery->bindValue(':id_question', $idQuestion, PDO::PARAM_INT);
+
+            if ($addAnswerQuery->execute()) {
+            var_dump("etape 2");
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+
+    public function getQuestion(string $idQuiz)
+    {
+        // requete me permettant de recup les données des quiz 
+        $query = 'SELECT `qQuestion` FROM `blablaquiz`.`question` WHERE `id_library` = :idQuiz';
+
+        // je prépare ma requête à l'aide de la methode prepare pour me prémunir des injections SQL
+        $getQuestionQuery = $this->database->prepare($query);
+
+        // je bind ma value idQuiz à mon paramètre $idQuiz 
+        $getQuestionQuery->bindValue(':idQuiz', $idQuiz, PDO::PARAM_STR);
+
+        // test et execution de la requête pour afficher message erreur 
+        if ($getQuestionQuery->execute()) {
+            // je retourne le resultat sous forme de tableau via la methode fetch car une seule ligne comme résultat
+            return $getQuestionQuery->fetchAll();
         } else {
             return false;
         }
