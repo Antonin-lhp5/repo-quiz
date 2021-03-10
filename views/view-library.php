@@ -14,15 +14,20 @@
 			<tbody class="bg-gray-800 divide-y divide-gray-400">
 				<?php foreach ($allQuizArray as $quiz) { ?>
 					<tr>
-						<!-- <td class="px-5 py-4 whitespace-nowrap"><img class="h-20 w-20 object-cover md:h-24 md:w-24 flex-shrink-0 rounded-lg" src="assets/upload<?= $quiz['image'] ?>" alt=""></td> -->
-						<td class="px-5 py-4 whitespace-nowrap"><?= $quiz['titre'] ?></td>
+						<td class="px-5 py-4 whitespace-nowrap">
+							<div class="flex items-center"><?= $quiz['titre'] ?>
+								<a href="detailsQuiz.php?idQuiz=<?= $quiz['id_library'] ?>" name="idQuiz">
+									<svg class="w-6 h-6 ml-2 text-gray-300 hover:text-gray-50" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+										<path d="M9 9a2 2 0 114 0 2 2 0 01-4 0z"></path>
+										<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a4 4 0 00-3.446 6.032l-2.261 2.26a1 1 0 101.414 1.415l2.261-2.261A4 4 0 1011 5z" clip-rule="evenodd"></path>
+									</svg>
+								</a>
+							</div>
+						</td>
 						<td class="px-5 py-4 whitespace-nowrap"><?= $quiz['categorie'] ?></td>
 
 						<td class="px-5 py-4 whitespace-nowrap">
-							<a href="detailsQuiz.php?idQuiz=<?= $quiz['id_library']?>" name="idQuiz" class="bg-gray-700 mx-auto hover:bg-gray-600 text-white text-sm px-4 py-2 mr-3">
-								détails
-							</a>
-							<a href="addQuestion.php?idQuiz=<?= $quiz['id_library']?>" name="idQuiz" class="bg-blue-700 mx-auto hover:bg-blue-600 text-white text-sm px-4 py-2">
+							<a href="addQuestion.php?idQuiz=<?= $quiz['id_library'] ?>" name="idQuiz" class="bg-blue-700 mx-auto hover:bg-blue-600 text-white text-sm px-4 py-2">
 								+ Questions
 							</a>
 						</td>
