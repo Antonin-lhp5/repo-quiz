@@ -2,8 +2,6 @@
 
 require_once '../models/database.php';
 require_once '../models/quiz.php';
-var_dump($_POST);
-
 
 $categoryObj = new Quiz;
 $allCategoryArray = $categoryObj->getAllCategory();
