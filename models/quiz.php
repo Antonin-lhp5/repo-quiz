@@ -129,7 +129,7 @@ class Quiz extends Database
         $addQuestionQuery->bindValue(':id_library', $quizQuestion['id_library'], PDO::PARAM_STR);
 
         // requête me permettant d'ajouter des réponses à l'id_library d'un quiz
-        $queryAnswer = 'INSERT INTO `anwser` (`goodOption`, `option1`, `option2`, `option3`, `id_question`)
+        $queryAnswer = 'INSERT INTO `answer` (`goodOption`, `option1`, `option2`, `option3`, `id_question`)
         VALUES (:goodOption, :option1, :option2, :option3, :id_question)';
 
         // Nous preparons notre requete à l'aide de la methode prepare
@@ -143,13 +143,11 @@ class Quiz extends Database
 
         // test et execution de la requête pour afficher message erreur
         if ($addQuestionQuery->execute()) {
-            var_dump("etape 1");
             $idQuestion = $this->database->lastInsertId();
 
             $addAnswerQuery->bindValue(':id_question', $idQuestion, PDO::PARAM_INT);
 
             if ($addAnswerQuery->execute()) {
-            var_dump("etape 2");
                 return true;
             } else {
                 return false;
@@ -162,7 +160,7 @@ class Quiz extends Database
 
     public function getQuestion(string $idQuiz)
     {
-        // requete me permettant de recup les données des quiz 
+        // requete me permettant de recup les données des questions du quiz
         $query = 'SELECT `qQuestion` FROM `blablaquiz`.`question` WHERE `id_library` = :idQuiz';
 
         // je prépare ma requête à l'aide de la methode prepare pour me prémunir des injections SQL
@@ -178,5 +176,23 @@ class Quiz extends Database
         } else {
             return false;
         }
+    }
+
+    public function getQuestionAndAnwser(string $idQuiz)
+    {
+        // requête me permettant de recup les données 
+        $query = 'SELECT `qQuestion`, `goodOption`, `option1`, `option2`, `option3`
+        FROM `answer`
+        INNER join `question` ON `question`.`id_question`  = `answer`.`id_question`
+        WHERE `id_library` = :idQuiz';
+
+        $getQuestionAndAnwserQuery = $this->database->prepare($query);
+
+        $getQuestionAndAnwserQuery->bindValue(':idQuiz', $idQuiz, PDO::PARAM_STR);
+
+        if ($getQuestionAndAnwserQuery->execute()) {
+            return $getQuestionAndAnwserQuery->fetchAll();
+        } return false;
+
     }
 }

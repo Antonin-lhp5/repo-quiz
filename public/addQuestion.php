@@ -1,4 +1,4 @@
-<?php var_dump($_POST);
+<?php 
 require_once '../controllers/controller-dashboard.php';
 user_connecte();
 require_once '../controllers/controller-addQuestion.php';

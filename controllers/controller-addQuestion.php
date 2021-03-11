@@ -100,8 +100,6 @@ if (isset($_POST['addQuestionBtn'])) {
             'id_question' => $_SESSION['idQuiz']
         ];
 
-        var_dump($quizQuestion);
-
         if ($quizObj->addQuestion($quizQuestion)) {
             $addQuestionInBase = true;
             $allQuestionArray = $quizObj->getQuestion($idQuiz);
