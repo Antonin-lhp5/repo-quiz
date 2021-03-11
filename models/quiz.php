@@ -209,7 +209,7 @@ class Quiz extends Database
 
         $deleteQuizQuery = $this->database->prepare($query);
 
-        $deleteQuizQuery->bindValue(':id', $idQuiz, PDO::PARAM_STR);
+        $deleteQuizQuery->bindValue(':idQuiz', $idQuiz, PDO::PARAM_STR);
 
         if ($deleteQuizQuery->execute()) {
             return true;

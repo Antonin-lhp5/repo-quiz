@@ -11,7 +11,7 @@
     } else { ?>
       <p class="text-lg text-red-500 text-center py-3"></i>Quiz non présent</p>
       <div class="text-center">
-        <a type="button" href="detailsQuiz.php" class="mt-5 bg-blue-600 hover:bg-blue-700 text-gray-200 font-bold py-2 px-4 rounded outline-none">Retour</a>
+        <a type="button" href="library.php" class="mt-5 bg-blue-600 hover:bg-blue-700 text-gray-200 font-bold py-2 px-4 rounded outline-none">Retour</a>
       </div>
     <?php
     } ?>
