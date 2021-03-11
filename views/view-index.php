@@ -9,7 +9,7 @@
                 <span class="h-5 md:h-8 w-1 bg-white"></span>
                 <div>Apprends</div>
             </h1>
-            <p class="leading-relaxed text-white mb-8">Avec Quiz Vendredi améliore ta culture générale en t'amusant, lance toi des défis et apprend plein de nouvelles choses. De nouveaux quiz arrivent chaque semaine.</p>
+            <p class="leading-relaxed text-white mb-8">Avec Quiz Blablaquiz améliore ta culture générale en t'amusant, lance toi des défis et apprend plein de nouvelles choses. De nouveaux quiz arrivent chaque semaine.</p>
             <div class="flex justify-center">
                 <a href="explorer.php" class="rounded-md bg-gray-200 border-pink-600 shadow text-gray-700 hover:text-pink-600 font-bold py-2 px-6">
                     Explorer
@@ -61,15 +61,15 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-2 md:gap-4 px-5">
 
             <?php
-            for ($i = 1; $i <= 6; $i++) { ?>
-
+            foreach (array_slice($allQuizArray, 0, 6) as $quiz) { ?>
+        
                 <div>
                     <a href="#" class="flex py-2 md:py-3 px-3 group rounded-lg bg-gray-800 ring-1 ring-black ring-opacity-10 shadow-lg hover:bg-gray-700 transition duration-300 ease-in-out">
-                        <img class="h-20 w-20 object-cover md:h-24 md:w-24 flex-shrink-0 rounded-lg" src="assets/img/cat.jpg" alt="">
+                        <img class="h-20 w-20 object-cover md:h-24 md:w-24 flex-shrink-0 rounded-lg" src="/assets/upload<?= $quiz['image'] ?>" alt="">
                         <div class="pl-5 py-1 space-y-1">
-                            <h1 class="text-xs sm:text-sm">Nature</h1>
-                            <h2 class="text-sm sm:text-base custom-truncate leading-tight group-hover:text-indigo-200">
-                                Les chats dans l'Histoire avec un grand H</h2>
+                            <h2 class="text-xs sm:text-sm"><?= $quiz['categorie']?></h2>
+                            <h1 class="text-sm sm:text-base custom-truncate leading-tight group-hover:text-indigo-200">
+                            <?= $quiz['titre']?></h1>
                         </div>
                     </a>
                 </div>

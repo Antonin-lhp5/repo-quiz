@@ -1,6 +1,6 @@
 <?php
 // récupérer le select catégorie 
-require '../controllers/controller-library.php';
+require '../controllers/controller-explorer.php';
 
 // afficher les views
 require_once '../views/header.php';

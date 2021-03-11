@@ -34,7 +34,7 @@
         <p class="pt-5 pb-2">Questions <span><?= $totalQuestions ?>/10</span></p>
         <?php foreach ($detailsQuestionAndAnswerArray as $details) { ?>
             <div class="bg-gray-800 p-4 mb-2 rounded-md flex-col">
-                <div> <?= $details['qQuestion'] ?> </div>
+                <div class="pb-2 font-semibold"> <?= $details['qQuestion'] ?> </div>
                 <div class="flex">
                     <div class="w-1/2">
                         <div class="flex items-center"><span class="mr-3">

@@ -192,7 +192,29 @@ class Quiz extends Database
 
         if ($getQuestionAndAnwserQuery->execute()) {
             return $getQuestionAndAnwserQuery->fetchAll();
-        } return false;
+        }
+        return false;
+    }
 
+    /**
+     * methode permettant d'effacer un quiz
+     *
+     * @param string $quizId
+     * @return boolean permettant de savoir si le delete est ok
+     */
+    public function deleteQuiz(string $idQuiz)
+    {
+        // Mise en place de la requête
+        $query = 'DELETE FROM `library` WHERE `id_library` = :idQuiz';
+
+        $deleteQuizQuery = $this->database->prepare($query);
+
+        $deleteQuizQuery->bindValue(':id', $idQuiz, PDO::PARAM_STR);
+
+        if ($deleteQuizQuery->execute()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
