@@ -1,5 +1,4 @@
 <?php
-
 require_once '../models/database.php';
 require_once '../models/quiz.php';
 
@@ -21,3 +20,5 @@ if(isset($_POST['deleteBtn'])){
 
 // Création d'un tableau contenant toutes les rdvs pour les afficher dans notre vue
 $allQuizArray = $quizObj->getAllQuiz();
+
+

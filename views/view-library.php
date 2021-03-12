@@ -1,4 +1,6 @@
 <!-- component -->
+<div class="text-lg text-center pt-3"><?= $messages['delete'] ?? '' ?></div>
+
 <div class="shadow overflow-auto m-6 max-w-screen-xl mx-auto rounded-lg">
 	<form action="library.php" method="GET">
 		<table class="w-full divide-y divide-gray-400">
@@ -40,7 +42,7 @@
 								<button class="bg-green-700 mx-auto hover:bg-green-600 text-white text-sm px-4 py-2 mr-2">
 									Enregistrer
 								</button>
-								<button class="bg-red-700 mx-auto hover:bg-red-600 text-white text-sm px-2 py-2 show-modal" data-del-id="<?= $quiz['id_library']?>">
+								<button type="button" data-quizid="<?= $quiz['id_library'] ?>" data-quizname="<?= $quiz['titre']?>" class="bg-red-700 mx-auto hover:bg-red-600 text-white text-sm px-2 py-2 show-modal">
 									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-5 w-5 text-gray-200">
 										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
 									</svg>
@@ -54,7 +56,7 @@
 	</form>
 </div>
 
-<!-- <button class="bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded text-white m-5 show-modal">show modal</button> -->
+<button class="bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded text-white m-5 show-modal">show modal</button>
 
 <div class="modal h-screen w-full fixed left-0 top-0 justify-center items-center bg-black bg-opacity-50 hidden">
 	<!-- modal -->
@@ -65,12 +67,12 @@
 			<button class="text-black close-modal">&cross;</button>
 		</div>
 		<!-- modal body -->
-		<div class="p-3">
-			Vous aller supprimer un quiz
+		<div id="nameQuiz" class="p-3">
+			
 		</div>
 		<div class="flex justify-end items-center w-100 border-t p-3">
 			<form action="" method="POST">
-				<button id="deleteBtnModal" name="deleteBtn" type="submit"  class="bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-white mr-2">Supprimer</button>
+				<button id="deleteBtnModal" name="deleteBtn" type="submit" class="bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-white mr-2">Supprimer</button>
 			</form>
 			<button class="bg-gray-600 hover:bg-gray-700 px-3 py-1 rounded text-white close-modal">Retour</button>
 
@@ -79,15 +81,20 @@
 </div>
 
 <script>
+	
 	const modal = document.querySelector('.modal');
-
-	const showModal = document.querySelector('.show-modal');
 	const closeModal = document.querySelectorAll('.close-modal');
+	const allDelButton = document.querySelectorAll('.show-modal');
 
-	showModal.addEventListener('click', function() {
-		modal.classList.remove('hidden')
-		modal.classList.add('flex')
-	});
+	allDelButton.forEach(element => {
+		element.addEventListener('click', function() {
+			nameQuiz.innerHTML= element.dataset.quizname;
+			deleteBtnModal.value= element.dataset.quizid;
+			modal.classList.remove('hidden')
+			modal.classList.add('flex')
+		});
+
+	})
 
 	closeModal.forEach(close => {
 		close.addEventListener('click', function() {
@@ -95,20 +102,5 @@
 		});
 	});
 
-	// on définit la constante regroupant tous nos boutons 
-	const deleteButtons = document.querySelectorAll('.show-modal');
 
-	// nous ajoutons un écouteur d'événement sur chaque bouton à l'aide du foreach
-	deleteButtons.forEach(element => {
-		element.addEventListener('click', function() {
-			// Nous allons recupérer les valeurs via les datas inclus dans chaque bouton
-			// Nous modifions la valeur des span à l'aide de innerHTML
-			// patientDeleteModal.innerHTML = element.dataset.delPatient;
-			// dateDeleteModal.innerHTML = element.dataset.delDate;
-			// hourDeleteModal.innerHTML = element.dataset.delHour;
-			// Nous attribuons la valeur de l'id du rdv pour supprimer le rdv
-			deleteBtnModal.value = element.dataset.delId;
-
-		})
-	});
 </script>

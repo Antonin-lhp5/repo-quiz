@@ -1,5 +1,4 @@
 <?php
-
 require_once '../models/database.php';
 require_once '../models/quiz.php';
 
@@ -10,18 +9,12 @@ $addQuestionInBase = false;
 $errors = [];
 $regexText = '/^[A-zÀ-û 0-9œ\-\',?%ç]+$/';
 
-
-
-
 if (isset($_GET['idQuiz'])) {
     $_SESSION['idQuiz'] = $_GET['idQuiz'];
 }
 
 $quizObj = new Quiz;
 $idQuiz = $_SESSION['idQuiz'];
-$allQuestionArray = $quizObj->getQuestion($idQuiz);
-
-$totalQuestions = count($allQuestionArray);
 
 if (isset($_POST['addQuestionBtn'])) {
 
@@ -102,10 +95,14 @@ if (isset($_POST['addQuestionBtn'])) {
 
         if ($quizObj->addQuestion($quizQuestion)) {
             $addQuestionInBase = true;
-            $allQuestionArray = $quizObj->getQuestion($idQuiz);
+            $allQuestionArray = $quizObj->getQuestionAndAnwser($idQuiz);
             $totalQuestions = count($allQuestionArray);
         } else {
             $messages['addQuestion'] = 'Erreur de connexion lors de l\'enregistrement';
         }
     }
 }
+
+
+$allQuestionArray = $quizObj->getAllQuestions($idQuiz);
+$totalQuestions = count($allQuestionArray);

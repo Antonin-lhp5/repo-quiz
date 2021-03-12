@@ -21,7 +21,7 @@ if (isset($_GET['idQuiz'])) {
     // Nous recuperons la session pour faire apparaître le compteur des questions
     $_SESSION['idQuiz'] = $_GET['idQuiz'];
     $idQuiz = $_SESSION['idQuiz'];
-    $allQuestionArray = $quizObj->getQuestion($idQuiz);
+    $allQuestionArray = $quizObj->getAllQuestions($idQuiz);
     $totalQuestions = count($allQuestionArray);
 
 } else {

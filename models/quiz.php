@@ -158,10 +158,10 @@ class Quiz extends Database
     }
 
 
-    public function getQuestion(string $idQuiz)
+    public function getAllQuestions(string $idQuiz)
     {
         // requete me permettant de recup les données des questions du quiz
-        $query = 'SELECT `qQuestion` FROM `blablaquiz`.`question` WHERE `id_library` = :idQuiz';
+        $query = 'SELECT `qQuestion`, `id_question` FROM `blablaquiz`.`question` WHERE `id_library` = :idQuiz';
 
         // je prépare ma requête à l'aide de la methode prepare pour me prémunir des injections SQL
         $getQuestionQuery = $this->database->prepare($query);
@@ -173,6 +173,29 @@ class Quiz extends Database
         if ($getQuestionQuery->execute()) {
             // je retourne le resultat sous forme de tableau via la methode fetch car une seule ligne comme résultat
             return $getQuestionQuery->fetchAll();
+        } else {
+            return false;
+        }
+    }
+
+    public function getOneQuestionAndAnwser(string $idQuestion)
+    {
+        // requete me permettant de recup les données des questions du quiz
+        $query = 'SELECT `qQuestion`, `goodOption`, `option1`, `option2`, `option3`, `question`.`id_question`
+        FROM `answer`
+        INNER join `question` ON `question`.`id_question`  = `answer`.`id_question`
+        WHERE `question`.`id_question` = :idQuestion';
+
+        // je prépare ma requête à l'aide de la methode prepare pour me prémunir des injections SQL
+        $getQuestionQuery = $this->database->prepare($query);
+
+        // je bind ma value idQuiz à mon paramètre $idQuiz 
+        $getQuestionQuery->bindValue(':idQuestion', $idQuestion, PDO::PARAM_STR);
+
+        // test et execution de la requête pour afficher message erreur 
+        if ($getQuestionQuery->execute()) {
+            // je retourne le resultat sous forme de tableau via la methode fetch car une seule ligne comme résultat
+            return $getQuestionQuery->fetch();
         } else {
             return false;
         }
@@ -213,6 +236,54 @@ class Quiz extends Database
 
         if ($deleteQuizQuery->execute()) {
             return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function updateQuestionAndAnswer(array $quizInfo)
+    {
+        // requête me permettant de modifier les questions
+        $query =  'UPDATE `blablaquiz`.`question` SET
+        `qQuestion` = :qQuestion
+
+        WHERE id_library = :idQuiz';
+
+        // je prépare ma requête à l'aide de la methode prepare pour me prémunir des injections SQL
+        $updateQuestionQuery = $this->database->prepare($query);
+
+        // je bind mes valeurs à l'aide de la methode bindvalue()
+        $updateQuestionQuery->bindValue(':qQuestion', $quizInfo['qQuestion'], PDO::PARAM_STR);
+
+        // requête me permettant de modifier les réponses
+        $query =  'UPDATE `blablaquiz`.`answer` SET
+        `goodOption` = :goodOption,
+        `option1` = :option1,
+        `option2` = :option2,
+        `option3` = :option3
+
+        WHERE id_library = :idQuiz';
+
+        // je prépare ma requête à l'aide de la methode prepare pour me prémunir des injections SQL
+        $updateAnswerQuery = $this->database->prepare($query);
+
+        // je bind mes valeurs à l'aide de la methode bindvalue()
+        $updateAnswerQuery->bindValue(':goodOption', $quizInfo['goodOption'], PDO::PARAM_STR);
+        $updateAnswerQuery->bindValue(':option1', $quizInfo['option1'], PDO::PARAM_STR);
+        $updateAnswerQuery->bindValue(':option2', $quizInfo['option2'], PDO::PARAM_STR);
+        $updateAnswerQuery->bindValue(':option3', $quizInfo['option3'], PDO::PARAM_STR);
+
+        // test et execution de la requête pour afficher message erreur
+        if ($updateQuestionQuery->execute()) {
+            $idQuestion = $this->database->lastInsertId();
+
+            $updateAnswerQuery->bindValue(':id_library', $idQuestion, PDO::PARAM_INT);
+
+            if ($updateAnswerQuery->execute()) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }

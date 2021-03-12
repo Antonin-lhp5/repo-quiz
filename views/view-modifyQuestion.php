@@ -24,9 +24,9 @@
     </div>
 
     <div class="flex flex-col w-full md:w-2/3 text-gray-200 mt-5 md:mt-0">
-      <div class="text-lg pb-3">Création du quiz</div>
+      <div class="text-lg pb-3">Modification du quiz</div>
 
-      <?php include 'include/form-addQuestion.php' ?>
+      <?php include 'include/form-modifyQuestion.php' ?>
     </div>
   </div>
 </div>
