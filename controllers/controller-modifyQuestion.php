@@ -7,12 +7,7 @@ if (isset($_GET['idQuiz']) && isset($_GET['idQuestion'])) {
     $_SESSION['idQuestion'] = $_GET['idQuestion'];
 }
 
-$quizObj = new Quiz;
-$allQuestionArray = $quizObj->getAllQuestions($_SESSION['idQuiz']);
 
-$totalQuestions = count($allQuestionArray);
-
-$questionInfoArray = $quizObj->getOneQuestionAndAnwser($_SESSION['idQuestion']);
 
 // regex 
 $errors = [];
@@ -101,12 +96,11 @@ if (isset($_POST['updateQuestionBtn'])) {
             'option1' => htmlspecialchars($_POST['option1']),
             'option2' => htmlspecialchars($_POST['option2']),
             'option3' => htmlspecialchars($_POST['option3']),
-            'id_question' => $_SESSION['idQuestion']
+            'id_question' => $_SESSION['idQuestion'],
+            'id_answer' => htmlspecialchars($_POST['id_answer'])
         ];
 
-        var_dump($updateQuestion);
-
-        if ($quizObj-> updateQuestionAndAnswer($updateQuestion)) {
+        if ($quizObj->updateQuestionAndAnswer($updateQuestion)) {
             $updateQuizInBase = true;
             $messages['updateQuestion'] = 'Les modifications ont bien été prises en compte';
         } else {
@@ -114,3 +108,23 @@ if (isset($_POST['updateQuestionBtn'])) {
         }
     }
 }
+
+// Creation d'un tableau contenant les quiz avec comme info : titre, image, catégorie
+$quizObj = new Quiz;
+
+//on definie un tableau de message
+$messages = [];
+
+// nous controllons si nous avons appuyé sur notre bouton delete via la methode POST
+if(isset($_POST['deleteBtn'])){
+    if($quizObj->deleteQuestion($_POST['deleteBtn'])){
+        header('Location: /addQuestion.php?idQuiz='. $_SESSION['idQuiz']);
+    } else {
+        $messages['delete'] = 'La question n\'a pas pu être supprimé';
+    }
+}
+
+$quizObj = new Quiz;
+$questionInfoArray = $quizObj->getOneQuestionAndAnwser($_SESSION['idQuestion']);
+$allQuestionArray = $quizObj->getAllQuestions($_SESSION['idQuiz']);
+$totalQuestions = count($allQuestionArray);

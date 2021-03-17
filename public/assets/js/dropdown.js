@@ -13,6 +13,6 @@ menuBtn.addEventListener('click', () => {
 document.addEventListener('click', function(event) {
     // If user clicks inside the element, do nothing
     if (event.target.closest('#dropdown-btn') ) return
-    // If user clicks outside the element, hide it!
+    // If user clicks outside the element, hide it
     dropdown.classList.add('hidden')
 })

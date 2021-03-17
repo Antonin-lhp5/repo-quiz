@@ -42,7 +42,7 @@
 								<button class="bg-green-700 mx-auto hover:bg-green-600 text-white text-sm px-4 py-2 mr-2">
 									Enregistrer
 								</button>
-								<button type="button" data-quizid="<?= $quiz['id_library'] ?>" data-quizname="<?= $quiz['titre']?>" class="bg-red-700 mx-auto hover:bg-red-600 text-white text-sm px-2 py-2 show-modal">
+								<button type="button" data-quizid="<?= $quiz['id_library'] ?>" data-quizname="<?= $quiz['titre'] ?>" class="bg-red-700 mx-auto hover:bg-red-600 text-white text-sm px-2 py-2 show-modal">
 									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-5 w-5 text-gray-200">
 										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
 									</svg>
@@ -56,7 +56,7 @@
 	</form>
 </div>
 
-<button class="bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded text-white m-5 show-modal">show modal</button>
+
 
 <div class="modal h-screen w-full fixed left-0 top-0 justify-center items-center bg-black bg-opacity-50 hidden">
 	<!-- modal -->
@@ -64,11 +64,14 @@
 		<!-- modal header -->
 		<div class="border-b px-4 py-2 flex justify-between items-center">
 			<h3 class="font-semibold text-lg">Module de suppression</h3>
-			<button class="text-black close-modal">&cross;</button>
+			<button class="text-black close-modal"><svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+				</svg>
+			</button>
 		</div>
 		<!-- modal body -->
 		<div id="nameQuiz" class="p-3">
-			
+
 		</div>
 		<div class="flex justify-end items-center w-100 border-t p-3">
 			<form action="" method="POST">
@@ -81,15 +84,14 @@
 </div>
 
 <script>
-	
 	const modal = document.querySelector('.modal');
 	const closeModal = document.querySelectorAll('.close-modal');
 	const allDelButton = document.querySelectorAll('.show-modal');
 
 	allDelButton.forEach(element => {
 		element.addEventListener('click', function() {
-			nameQuiz.innerHTML= element.dataset.quizname;
-			deleteBtnModal.value= element.dataset.quizid;
+			nameQuiz.innerHTML = element.dataset.quizname;
+			deleteBtnModal.value = element.dataset.quizid;
 			modal.classList.remove('hidden')
 			modal.classList.add('flex')
 		});
@@ -101,6 +103,4 @@
 			modal.classList.add('hidden')
 		});
 	});
-
-
 </script>

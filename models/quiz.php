@@ -181,7 +181,7 @@ class Quiz extends Database
     public function getOneQuestionAndAnwser(string $idQuestion)
     {
         // requete me permettant de recup les données des questions du quiz
-        $query = 'SELECT `qQuestion`, `goodOption`, `option1`, `option2`, `option3`, `question`.`id_question`
+        $query = 'SELECT `qQuestion`, `goodOption`, `option1`, `option2`, `option3`, `question`.`id_question`, `id_answer`
         FROM `answer`
         INNER join `question` ON `question`.`id_question`  = `answer`.`id_question`
         WHERE `question`.`id_question` = :idQuestion';
@@ -243,17 +243,18 @@ class Quiz extends Database
 
     public function updateQuestionAndAnswer(array $updateQuestion)
     {
-        // requête me permettant de modifier les questions
+        // requête me permettant de modifier la question
         $query =  'UPDATE `blablaquiz`.`question` SET
         `qQuestion` = :qQuestion
 
-        WHERE id_library = :idQuiz';
+        WHERE id_question = :id_question';
 
         // je prépare ma requête à l'aide de la methode prepare pour me prémunir des injections SQL
         $updateQuestionQuery = $this->database->prepare($query);
 
         // je bind mes valeurs à l'aide de la methode bindvalue()
         $updateQuestionQuery->bindValue(':qQuestion', $updateQuestion['qQuestion'], PDO::PARAM_STR);
+        $updateQuestionQuery->bindValue(':id_question', $updateQuestion['id_question'], PDO::PARAM_STR);
 
         // requête me permettant de modifier les réponses
         $query =  'UPDATE `blablaquiz`.`answer` SET
@@ -262,7 +263,7 @@ class Quiz extends Database
         `option2` = :option2,
         `option3` = :option3
 
-        WHERE id_library = :idQuiz';
+        WHERE id_answer = :id_answer';
 
         // je prépare ma requête à l'aide de la methode prepare pour me prémunir des injections SQL
         $updateAnswerQuery = $this->database->prepare($query);
@@ -272,18 +273,38 @@ class Quiz extends Database
         $updateAnswerQuery->bindValue(':option1', $updateQuestion['option1'], PDO::PARAM_STR);
         $updateAnswerQuery->bindValue(':option2', $updateQuestion['option2'], PDO::PARAM_STR);
         $updateAnswerQuery->bindValue(':option3', $updateQuestion['option3'], PDO::PARAM_STR);
+        $updateAnswerQuery->bindValue(':id_answer', $updateQuestion['id_answer'], PDO::PARAM_STR);
 
         // test et execution de la requête pour afficher message erreur
         if ($updateQuestionQuery->execute()) {
-            $idQuestion = $this->database->lastInsertId();
-
-            $updateAnswerQuery->bindValue(':id_library', $idQuestion, PDO::PARAM_INT);
 
             if ($updateAnswerQuery->execute()) {
-                return true;
+                true;
             } else {
-                return false;
+                false;
             }
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * methode permettant d'effacer un quiz
+     *
+     * @param string $qidQuestion
+     * @return boolean permettant de savoir si le delete est ok
+     */
+    public function deleteQuestion(string $idQuestion)
+    {
+        // Mise en place de la requête
+        $query = 'DELETE FROM `question` WHERE `id_question` = :id_question';
+
+        $deleteQuestionQuery = $this->database->prepare($query);
+
+        $deleteQuestionQuery->bindValue(':id_question', $idQuestion, PDO::PARAM_STR);
+
+        if ($deleteQuestionQuery->execute()) {
+            return true;
         } else {
             return false;
         }
