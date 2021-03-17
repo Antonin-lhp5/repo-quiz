@@ -40,10 +40,10 @@ class Quiz extends Database
     /**
      * Methode permettant d'ajouter un quiz 
      *
-     * @param array $quizInfo
+     * @param array $updateQuestion
      * @return boolean en fonction de l'execution de la requête
      */
-    public function addQuiz(array $quizInfo)
+    public function addQuiz(array $updateQuestion)
     {
         // Je mets en place des marqueurs nominatifs pour preparer ma requête avec des valeurs recuperées via form
         $query = 'INSERT INTO `blablaquiz`.`library` (`qTitle`, `qImg`, `id_category`)
@@ -53,9 +53,9 @@ class Quiz extends Database
         $addQuizQuery = $this->database->prepare($query);
 
         // je bind mes valeurs à l'aide de la methode bindvalue()
-        $addQuizQuery->bindValue(':qTitle', $quizInfo['qTitle'], PDO::PARAM_STR);
-        $addQuizQuery->bindValue(':qImg', $quizInfo['qImg'], PDO::PARAM_STR);
-        $addQuizQuery->bindValue(':id_category', $quizInfo['id_category'], PDO::PARAM_STR);
+        $addQuizQuery->bindValue(':qTitle', $updateQuestion['qTitle'], PDO::PARAM_STR);
+        $addQuizQuery->bindValue(':qImg', $updateQuestion['qImg'], PDO::PARAM_STR);
+        $addQuizQuery->bindValue(':id_category', $updateQuestion['id_category'], PDO::PARAM_STR);
 
         // test et execution de la requête pour afficher message erreur
         if ($addQuizQuery->execute()) {
@@ -91,7 +91,7 @@ class Quiz extends Database
         }
     }
 
-    public function updateQuiz(array $quizInfo)
+    public function updateQuiz(array $updateQuestion)
     {
         // requête me permettant de modifier mon quiz 
         $query =  'UPDATE `blablaquiz`.`library` SET
@@ -104,9 +104,9 @@ class Quiz extends Database
         $updateQuizQuery = $this->database->prepare($query);
 
         // je bind mes valeurs à l'aide de la methode bindvalue()
-        $updateQuizQuery->bindValue(':qTitle', $quizInfo['qTitle'], PDO::PARAM_STR);
-        $updateQuizQuery->bindValue(':id_category', $quizInfo['id_category'], PDO::PARAM_STR);
-        $updateQuizQuery->bindValue(':idQuiz', $quizInfo['id_library'], PDO::PARAM_STR);
+        $updateQuizQuery->bindValue(':qTitle', $updateQuestion['qTitle'], PDO::PARAM_STR);
+        $updateQuizQuery->bindValue(':id_category', $updateQuestion['id_category'], PDO::PARAM_STR);
+        $updateQuizQuery->bindValue(':idQuiz', $updateQuestion['id_library'], PDO::PARAM_STR);
 
         if ($updateQuizQuery->execute()) {
             return true;
@@ -241,7 +241,7 @@ class Quiz extends Database
         }
     }
 
-    public function updateQuestionAndAnswer(array $quizInfo)
+    public function updateQuestionAndAnswer(array $updateQuestion)
     {
         // requête me permettant de modifier les questions
         $query =  'UPDATE `blablaquiz`.`question` SET
@@ -253,7 +253,7 @@ class Quiz extends Database
         $updateQuestionQuery = $this->database->prepare($query);
 
         // je bind mes valeurs à l'aide de la methode bindvalue()
-        $updateQuestionQuery->bindValue(':qQuestion', $quizInfo['qQuestion'], PDO::PARAM_STR);
+        $updateQuestionQuery->bindValue(':qQuestion', $updateQuestion['qQuestion'], PDO::PARAM_STR);
 
         // requête me permettant de modifier les réponses
         $query =  'UPDATE `blablaquiz`.`answer` SET
@@ -268,10 +268,10 @@ class Quiz extends Database
         $updateAnswerQuery = $this->database->prepare($query);
 
         // je bind mes valeurs à l'aide de la methode bindvalue()
-        $updateAnswerQuery->bindValue(':goodOption', $quizInfo['goodOption'], PDO::PARAM_STR);
-        $updateAnswerQuery->bindValue(':option1', $quizInfo['option1'], PDO::PARAM_STR);
-        $updateAnswerQuery->bindValue(':option2', $quizInfo['option2'], PDO::PARAM_STR);
-        $updateAnswerQuery->bindValue(':option3', $quizInfo['option3'], PDO::PARAM_STR);
+        $updateAnswerQuery->bindValue(':goodOption', $updateQuestion['goodOption'], PDO::PARAM_STR);
+        $updateAnswerQuery->bindValue(':option1', $updateQuestion['option1'], PDO::PARAM_STR);
+        $updateAnswerQuery->bindValue(':option2', $updateQuestion['option2'], PDO::PARAM_STR);
+        $updateAnswerQuery->bindValue(':option3', $updateQuestion['option3'], PDO::PARAM_STR);
 
         // test et execution de la requête pour afficher message erreur
         if ($updateQuestionQuery->execute()) {

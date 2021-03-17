@@ -1,6 +1,6 @@
 <div class="container mx-auto max-w-screen-xl">
   <div class="flex flex-wrap md:flex-nowrap pt-10 mx-5">
-    <div class="flex flex-col w-full md:w-1/3 space-y-3 md:mr-10">
+    <div class="flex flex-col w-full md:w-1/3 space-y-3 md:mr-10 pb-10">
       <div class="text-gray-200">
         <div class="text-lg pb-3">Questions du quiz</div>
         <div class="flex justify-between items-center">
@@ -10,19 +10,20 @@
             </svg></button>
         </div>
       </div>
-      <?php foreach ($allQuestionArray as $quiz)  { 
-        ?>
-        <div class="flex items-center p-2 border rounded shadow">
-          <div class="mr-2">
-            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
-            </svg>
+      <?php foreach ($allQuestionArray as $quiz) {
+      ?>
+        
+          <div class="flex items-center p-2 border rounded shadow">
+            <div class="mr-2">
+              <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+              </svg>
+            </div>
+            <span class="text-gray-200"><a href="modifyQuestion.php?idQuestion=<?= $quiz['id_question'] ?>&idQuiz=<?= $_GET['idQuiz'] ?>" class="hover:underline"> <?= $quiz['qQuestion'] ?> </a></span>
           </div>
-          <span class="text-gray-200"><a href="modifyQuestion.php?idQuestion=<?= $quiz['id_question'] ?>&idQuiz=<?= $_GET['idQuiz'] ?>" class="hover:underline"> <?= $quiz['qQuestion'] ?> </a></span>
-        </div>
-      <?php } ?>
+        <?php } ?>
+        
     </div>
-
     <div class="flex flex-col w-full md:w-2/3 text-gray-200 mt-5 md:mt-0">
       <div class="text-lg pb-3">Création du quiz</div>
 

@@ -89,10 +89,11 @@ if (isset($_POST['addQuestionBtn'])) {
             'goodOption' => htmlspecialchars($_POST['goodOption']),
             'option1' => htmlspecialchars($_POST['option1']),
             'option2' => htmlspecialchars($_POST['option2']),
-            'option3' => htmlspecialchars($_POST['option3']),
-            'id_question' => $_SESSION['idQuiz']
+            'option3' => htmlspecialchars($_POST['option3'])
+            // 'id_question' => $_SESSION['idQuiz']
         ];
 
+      
         if ($quizObj->addQuestion($quizQuestion)) {
             $addQuestionInBase = true;
             $allQuestionArray = $quizObj->getQuestionAndAnwser($idQuiz);

@@ -27,8 +27,14 @@
                 <div id="dropdown" class="hidden absolute left-0 top-0 w-40 rounded-md shadow-lg bg-gray-700 " role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                     <div class="py-1">
                         <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:text-gray-50" role="menuitem">TOUT</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:text-gray-50" role="menuitem">Nature</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:text-gray-50" role="menuitem">Arts et Lettres</a>
+                        <?php
+                        foreach ($allCategoryArray as $category) { ?>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:text-gray-50" role="menuitem"><?= $category['categorie'] ?></a>
+
+                        <?php
+                        } ?>
+
+
                     </div>
                 </div>
             </div>
@@ -40,8 +46,8 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-2 md:gap-4">
 
             <?php
-            
-              foreach ($allQuizArray as $quiz) { ?>
+
+            foreach ($allQuizArray as $quiz) { ?>
 
                 <div>
                     <a href="#" class="flex py-2 md:py-3 px-3 group rounded-lg bg-gray-800 ring-1 ring-black ring-opacity-10 shadow-lg hover:bg-gray-700 transition duration-300 ease-in-out">
@@ -49,7 +55,7 @@
                         <div class="pl-5 py-1 space-y-1">
                             <h1 class="text-xs sm:text-sm"><?= $quiz['categorie'] ?></h1>
                             <h2 class="text-sm sm:text-base custom-truncate leading-tight group-hover:text-indigo-200">
-                            <?= $quiz['titre'] ?></h2>
+                                <?= $quiz['titre'] ?></h2>
                         </div>
                     </a>
                 </div>

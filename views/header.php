@@ -61,11 +61,11 @@ require_once '../controllers/controller-dashboard.php';
 
     <!-- mobile menu -->
     <div class="mobile-menu hidden md:hidden">
-      <a href="#" class="block py-2 px-4 text-sm hover:bg-purple-700">Accueil</a>
-      <a href="#" class="block py-2 px-4 text-sm hover:bg-purple-700">Explorer</a>
-      <a href="#" class="block py-2 px-4 text-sm hover:bg-purple-700">Nouveautés</a>
+      <a href="index.php" class="block py-2 px-4 text-sm hover:bg-purple-700">Accueil</a>
+      <a href="explorer.php" class="block py-2 px-4 text-sm hover:bg-purple-700">Explorer</a>
+      <a href="index.php#news" class="block py-2 px-4 text-sm hover:bg-purple-700">Nouveautés</a>
       <?php if (est_connecte()) : ?>
-        <a href="#" class="block py-2 px-4 text-sm hover:bg-purple-900">Quiz</a>
+        <a href="library.php" class="block py-2 px-4 text-sm hover:bg-purple-900">Bibliothèque</a>
         <a href="addQuiz.php" class="block py-2 px-4 text-sm hover:bg-indigo-900">Créer</a>
         <a href="/deconnexion.php" class="block py-2 px-4 text-sm bg-red-700 hover:bg-red-800">Se déconnecter</a>
       <?php endif ?>

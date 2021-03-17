@@ -1,6 +1,6 @@
 <div class="pb-3">Modifier les questions et réponses</div>
 <div class="bg-gray-700 p-5 border-green-500 border-2 shadow mb-20">
-    <form action="" method="POST">
+    <form action="modifyQuestion.php" method="POST">
         <label class="block mb-2 text-gray-200" for="questionQuiz">La question <span class="text-red-500 ml-2"><?= $errors['questionQuiz'] ?? '' ?></span></label>
         <input class="w-full p-2 mb-6 text-gray-200 bg-gray-800 focus:border-transparent" type="text" name="questionQuiz" id="questionQuiz" placeholder="ex: Quel célèbre super-héro à pour origine la planère Krypton ?" value="<?= $questionInfoArray['qQuestion'] ?>">
 
@@ -17,9 +17,10 @@
         <input class="w-full p-2 mb-6 text-gray-200  bg-gray-800 focus:border-transparent" type="text" name="option3" id="option3" placeholder="ex: Wolverine" value="<?= $questionInfoArray['option3'] ?>">
 
         <div>
-            <button class="bg-green-600 hover:bg-green-700 text-gray-200 font-bold py-2 px-4 rounded" name="addQuestionBtn" type="submit" value="">
+            <button class="bg-green-600 hover:bg-green-700 text-gray-200 font-bold py-2 px-4 mr-1 rounded" name="updateQuestionBtn" type="submit" value="">
                 Modifier
             </button>
+            <a href="addQuestion.php?idQuiz=<?= $_SESSION['idQuiz'] ?>" class="bg-gray-800 hover:bg-gray-900 text-gray-200 font-bold py-2 px-4 rounded">Retour</a>
         </div>
     </form>
 </div>
