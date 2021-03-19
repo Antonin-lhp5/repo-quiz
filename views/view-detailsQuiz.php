@@ -1,6 +1,6 @@
 <div class="container mx-auto max-w-screen-md md:py-10">
   <div class="flex flex-col w-full text-gray-200 mt-5 md:mt-0">
-    <div class="text-xl pb-3 px-2">Module de création de quiz</div>
+    <div class="text-xl pb-3 px-2">Le quiz</div>
     <div class="pb-3 px-2">Détails du quiz</div>
 
     <?php

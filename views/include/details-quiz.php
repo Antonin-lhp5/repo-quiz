@@ -5,7 +5,7 @@
     </div>
     <div>
         <label class="block text-gray-200 mb-2" for="imgQuiz">Image du quiz</label>
-        <img class="h-20 w-20 object-cover md:h-24 md:w-24 flex-shrink-0 rounded-lg mb-2" src="assets/upload<?= $detailsQuizArray['qImg'] ?>" alt="">
+        <img class="h-20 w-20 object-cover md:h-24 md:w-24 flex-shrink-0 rounded-lg mb-2" src="assets/upload/<?= $detailsQuizArray['qImg'] ?>" alt="">
         <input class="mb-6" type="file" class="hidden" id="myFile" name="imgQuiz" disabled>
 
         <!-- nouveau input -->

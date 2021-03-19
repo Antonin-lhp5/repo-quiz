@@ -18,7 +18,7 @@ if(isset($_POST['deleteBtn'])){
 }
 
 
-// Création d'un tableau contenant toutes les rdvs pour les afficher dans notre vue
+// Création d'un tableau contenant tous les quiz pour les afficher dans notre vue
 $allQuizArray = $quizObj->getAllQuiz();
 
 

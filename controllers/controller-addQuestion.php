@@ -107,3 +107,6 @@ if (isset($_POST['addQuestionBtn'])) {
 
 $allQuestionArray = $quizObj->getAllQuestions($idQuiz);
 $totalQuestions = count($allQuestionArray);
+
+
+

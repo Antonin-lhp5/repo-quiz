@@ -1,47 +1,39 @@
-<?php 
-$titleQuiz = "Les couleurs"; //titre du quiz
+<?php
 
-$quiz_data = array(
-    1 => array(
-        'question' => "Quelle est la couleur du cheval blanc d'Henry IV",
-        'good_answer' => "Blanc",
-        'anwser1' => "Noir",
-        'anwser2' => "Jaune",
-        'anwser3' => "Rouge",
-        
-    ),
-    2 => array(
-        'question' => "Quelle est la couleur des petits poids",
-        'good_answer' => "Vert",
-        'anwser1' => "Blanc",
-        'anwser2' => "Rouge",
-        'anwser1' => "Jaune",
-            
-    ),
-    3 => array(
-        'question' => "Quelle est la couleur du soleil",
-        'good_answer' => "Jaune",
-        'anwser1' => "Blanc",
-        'anwser2' => "Noir",
-        'anwser3' => "Bleu",
-            
-    ),
-);
+require_once '../models/database.php';
+require_once '../models/quiz.php';
 
+$quizObj = new Quiz;
 
+if (isset($_GET['idQuiz'])) {
+    // Nous recuperons les détails du quiz à l'aide de son id
+    $detailsQuizArray = $quizObj->getDetailsQuiz($_GET['idQuiz']);
+  
+} else {
+
+    $detailsQuizArray = false;
+}
+
+$quizObj = new Quiz;
+
+if (isset($_GET['idQuiz'])) {
+    // Nous recuperons les détails du quiz à l'aide de son id
+    $detailsQuestionAndAnswerArray = $quizObj->getQuestionAndAnwser($_GET['idQuiz']);
+
+    // Nous recuperons la session pour faire apparaître le compteur des questions
+    $_SESSION['idQuiz'] = $_GET['idQuiz'];
+    $idQuiz = $_SESSION['idQuiz'];
+    $allQuestionArray = $quizObj->getAllQuestions($idQuiz);
+    $totalQuestions = count($allQuestionArray);
+
+} else {
+
+    $detailsQuestionAndAnswerArray = false;
+}
 
 ?>
 
-<script> 
-function correction() {
-    if (answer == <?php echo $quiz_data['good_anwser']; ?>) {
-        document.getElementById('correction').innerHTML = "Correct"
-    } else {
-        document.getElementById('correction').innerHTML = "Incorrect"
-    }
-}
 
-</script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,63 +42,119 @@ function correction() {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>quiz</title>
+    <link href="/assets/stylequiz.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
+
 
 </head>
 
 <body class="font-body">
 
-    <div class="mx-auto max-w-lg mt-20">
-        <h1 class="text-center text-4xl font-bold font-title"><?= $titleQuiz ?></h1>
-        <div class="text-center mt-5">1/5</div>
-        <div id="correction"></div>
+    <!-- <div class="container">
+        <div id="quiz" class="bg-purple-800 max-w-4xl mx-auto flex-col justify-center p-5 sm:mt-12 rounded-lg">
+            <div class="flex justify-between items-center">
 
-        <from method="POST" action="">
-        <?php 
-            $i = 0;
-            $next = 1; 
-            if (isset($_POST['next'])) {
-                ++$next;
-                }
-            var_dump($next);
-            foreach ($quiz_data as $value) { 
-            if(++$i > $next) break;
+                <h1 class="text-center text-4xl font-bold font-title pb-5">Quiz</h1>
 
-           
-        ?>
-         <p class="text-center text-lg mt-10"><?php echo $value['question']?></p>
-            <div class="grid lg:grid-cols-2 gap-2 md:gap-4 mt-10">
-            
-                    <label for="option1" class="w-full h-20 bg-black rounded-lg p-4 inline-flex items-center">
-                        <input type="radio" id="option1" name="choice" value="1" class="form-radio h-5 w-5 text-pink-600 focus:ring-transparent focus:ring-offset-transparent"><span class="ml-2 text-white"><?php echo $value['good_answer']?></span>
-                    </label>
-
-                    <label for="option2" class="w-full h-20 bg-black rounded-lg p-4 inline-flex items-center">
-                        <input type="radio" id="option2" name="choice" value="2" class="form-radio h-5 w-5 text-pink-600 focus:ring-transparent focus:ring-offset-transparent"><span class="ml-2 text-white"><?php echo $value['anwser1']?></span>
-                    </label>
-
-                    <label for="option3" class="w-full h-20 bg-black rounded-lg p-4 inline-flex items-center">
-                        <input type="radio" id="option3" name="choice" value="3" class="form-radio h-5 w-5 text-pink-600 focus:ring-transparent focus:ring-offset-transparent"><span class="ml-2 text-white"><?php echo $value['anwser2']?></span>
-                    </label>
-
-                    <label for="option4" class="w-full h-20 bg-black rounded-lg p-4 inline-flex items-center">
-                        <input type="radio" id="option4" name="choice" value="4" class="form-radio h-5 w-5 text-pink-600 focus:ring-transparent focus:ring-offset-transparent"><span class="ml-2 text-white"><?php echo $value['anwser3']?></span>
-                    </label>
-          
+                <p id="progress" class=""></p>
             </div>
-            <?php } ?>
-            <div class="py-6 md:py-8 flex justify-center">
-            <ul class="flex pl-0 rounded list-none flex-wrap">
-                <li>
-                    <button type="submit" name="next" class="text-md font-semibold flex px-3 py-2 md:px-6 md:py-4 rounded-xl leading-tight text-white bg-pink-600 hover:bg-pink-700 focus:outline-none mr-2">
-                        Suivant
-                    </button>
-                </li>
-            </ul>
-        </div>
-        </from>
 
+
+            <h2 id="question" class="text-xl text-center py-10"></h2>
+
+            <h3 id="score"></h3>
+
+
+            <div class="choices">
+
+                <div class="grid lg:grid-cols-2 gap-2 md:gap-4 mt-10 text-white mx-5 choices">
+                    <button id="option0" onclick="calcScore(this)" class="bg-black rounded-lg p-6">
+                        <p id="choice0"></p>
+                    </button>
+
+                    <button id="option1" onclick="calcScore(this)" class="bg-black rounded-lg p-6">
+                        <p id="choice1"></p>
+                    </button>
+
+                    <button id="option2" onclick="calcScore(this)" class="bg-black rounded-lg p-6">
+                        <p id="choice2"></p>
+                    </button>
+
+                    <button id="option3" onclick="calcScore(this)" class="bg-black rounded-lg p-6">
+                        <p id="choice3"></p>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </div> -->
+
+    <!-- start Quiz button -->
+    <div class="start_btn bg-gray-500"><button>Start Quiz</button></div>
+
+    <!-- Info Box -->
+    <div class="info_box">
+        <div class="info-title"><span>Some Rules of this Quiz</span></div>
+        <div class="info-list">
+            <div class="info">1. Tu as seulement <span>15 secondes</span> par question.</div>
+            <div class="info">2. Once you select your answer, it can't be undone.</div>
+            <div class="info">3. You can't select any option once time goes off.</div>
+            <div class="info">4. You can't exit from the Quiz while you're playing.</div>
+            <div class="info">5. You'll get points on the basis of your correct answers.</div>
+        </div>
+        <div class="buttons">
+            <button class="quit">Exit Quiz</button>
+            <button class="restart">Continue</button>
+        </div>
     </div>
+
+    <!-- Quiz Box -->
+    <div class="quiz_box">
+        <header>
+            <div class="title"><?= $detailsQuizArray['qTitle'] ?></div>
+            <div class="timer">
+                <div class="time_left_txt">Temps</div>
+                <div class="timer_sec">15</div>
+            </div>
+            <div class="time_line"></div>
+        </header>
+        <section>
+            <div class="que_text">
+                <!-- Here I've inserted question from JavaScript -->
+            </div>
+            <div class="option_list">
+                <!-- Here I've inserted options from JavaScript -->
+            </div>
+        </section>
+
+        <!-- footer of Quiz Box -->
+        <footer>
+            <div class="total_que">
+                <!-- Here I've inserted Question Count Number from JavaScript -->
+            </div>
+            <button class="next_btn">Suivant</button>
+        </footer>
+    </div>
+
+    <!-- Result Box -->
+    <div class="result_box">
+        <div class="icon">
+            <i class="fas fa-crown"></i>
+        </div>
+        <div class="complete_text">You've completed the Quiz!</div>
+        <div class="score_text">
+            <!-- Here I've inserted Score Result from JavaScript -->
+        </div>
+        <div class="buttons">
+            <button class="restart">Replay Quiz</button>
+            <button class="quit">Quit Quiz</button>
+        </div>
+    </div>
+
+   <?php require_once 'assets/js/script.php'; ?>
+
+    
 
 </body>
 

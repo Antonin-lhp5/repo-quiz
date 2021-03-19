@@ -37,7 +37,7 @@ if (isset($_POST['addQuiz'])) {
                 $pathInfoUploadedFile = pathinfo($_FILES['imgQuiz']['name']);
                 $newUploadedFileName = uniqid($pathInfoUploadedFile['filename']);
                 $fileExtension = $pathInfoUploadedFile['extension'];
-                $targetDirectory = 'assets/upload';
+                $targetDirectory = 'assets/upload/';
                 $newUploadedFileNamePlusTargetDirectory = $targetDirectory . $newUploadedFileName . '.' . $fileExtension;
                 if (move_uploaded_file($_FILES['imgQuiz']['tmp_name'], $newUploadedFileNamePlusTargetDirectory)) {
                     $message = 'Quiz enregistré !';

@@ -60,7 +60,7 @@
 
 <div class="modal h-screen w-full fixed left-0 top-0 justify-center items-center bg-black bg-opacity-50 hidden">
 	<!-- modal -->
-	<div class="bg-black rounded shadow-lg w-1/3">
+	<div class="bg-black rounded shadow-lg sm:w-1/3">
 		<!-- modal header -->
 		<div class="border-b px-4 py-2 flex justify-between items-center">
 			<h3 class="font-semibold text-lg">Module de suppression</h3>
@@ -70,15 +70,14 @@
 			</button>
 		</div>
 		<!-- modal body -->
-		<div id="nameQuiz" class="p-3">
 
-		</div>
+		<div id="nameQuiz" class="px-3 py-5 text-lg text-center font-bold"></div>
+		<div class="px-3 pb-3">Voulez-vous vraiment supprimer ce quiz ? Attention, cette action est irréversible !</div>
 		<div class="flex justify-end items-center w-100 border-t p-3">
 			<form action="" method="POST">
 				<button id="deleteBtnModal" name="deleteBtn" type="submit" class="bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-white mr-2">Supprimer</button>
 			</form>
 			<button class="bg-gray-600 hover:bg-gray-700 px-3 py-1 rounded text-white close-modal">Retour</button>
-
 		</div>
 	</div>
 </div>
