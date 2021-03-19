@@ -12,6 +12,23 @@ class Quiz extends Database
         // Nous stockons ici notre requête 
         $query = 'SELECT `qTitle`as `titre`, `qImg` as `image`, `qCategory` as `categorie`, `id_library`
         FROM `blablaquiz`.`library`
+        INNER join `category` ON `library`.`id_category` = `category`.`id_category` 
+        WHERE `publicated` = 1
+        ORDER BY `id_library` DESC';
+
+        // Nous executons notre requête à l'aide de la méthode query
+        $getAllQuizQuery = $this->database->query($query);
+
+        // j'effectue la methode fetchAll pour obtenir le resultat sous forme de tableau
+        return $getAllQuizQuery->fetchAll();
+    }
+
+
+    public function getAllQuizAdmin()
+    {
+        // Nous stockons ici notre requête 
+        $query = 'SELECT `qTitle`as `titre`, `qImg` as `image`, `qCategory` as `categorie`, `id_library`, `publicated`
+        FROM `blablaquiz`.`library`
         INNER join `category` ON `library`.`id_category` = `category`.`id_category` ORDER BY `id_library` DESC';
 
         // Nous executons notre requête à l'aide de la méthode query
@@ -20,6 +37,7 @@ class Quiz extends Database
         // j'effectue la methode fetchAll pour obtenir le resultat sous forme de tableau
         return $getAllQuizQuery->fetchAll();
     }
+
 
     /**
      * Méthode permettant d'obtenir les catégories des quiz
@@ -304,6 +322,27 @@ class Quiz extends Database
         $deleteQuestionQuery->bindValue(':id_question', $idQuestion, PDO::PARAM_STR);
 
         if ($deleteQuestionQuery->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function setUpdate($idQuiz, $publicated)
+    {
+        // requête me permettant de publier un quiz 
+        $query =  'UPDATE `blablaquiz`.`library` SET
+        `publicated` = :publicated
+        WHERE id_library = :idQuiz';
+
+        // je prépare ma requête à l'aide de la methode prepare pour me prémunir des injections SQL
+        $publicatedQuery = $this->database->prepare($query);
+
+        // je bind mes valeurs à l'aide de la methode bindvalue()
+        $publicatedQuery->bindValue(':idQuiz', $idQuiz, PDO::PARAM_STR);
+        $publicatedQuery->bindValue(':publicated', $publicated, PDO::PARAM_STR);
+
+        if ($publicatedQuery->execute()) {
             return true;
         } else {
             return false;

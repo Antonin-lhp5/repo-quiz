@@ -17,8 +17,16 @@ if(isset($_POST['deleteBtn'])){
     }
 }
 
+if(isset($_POST['publish'])){
+    if($quizObj->setUpdate($_POST['publish'],($_POST['publication']))) {
+        echo "ok";
+    } else {
+        echo "no";
+    }
+}
+
 
 // Création d'un tableau contenant tous les quiz pour les afficher dans notre vue
-$allQuizArray = $quizObj->getAllQuiz();
+$allQuizArray = $quizObj->getAllQuizAdmin();
 
 

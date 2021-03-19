@@ -91,21 +91,21 @@ if (isset($_GET['idQuiz'])) {
     </div> -->
 
     <!-- start Quiz button -->
-    <div class="start_btn bg-gray-500"><button>Start Quiz</button></div>
+    <div class="start_btn bg-gray-500"><button>Lancer le quiz</button></div>
 
     <!-- Info Box -->
     <div class="info_box">
-        <div class="info-title"><span>Some Rules of this Quiz</span></div>
+        <div class="info-title"><span>Quelques règles pour ce quiz</span></div>
         <div class="info-list">
-            <div class="info">1. Tu as seulement <span>15 secondes</span> par question.</div>
-            <div class="info">2. Once you select your answer, it can't be undone.</div>
-            <div class="info">3. You can't select any option once time goes off.</div>
-            <div class="info">4. You can't exit from the Quiz while you're playing.</div>
-            <div class="info">5. You'll get points on the basis of your correct answers.</div>
+            <div class="info">1. Vous avez seulement <span>15 secondes</span> par question.</div>
+            <div class="info">2. Une fois que vous avez sélectionné votre réponse, elle ne peut pas être annulée.</div>
+            <div class="info">3. Vous ne pouvez sélectionner aucune option une fois le temps écoulé.</div>
+            <div class="info">4. Vous ne pouvez pas quitter le Quiz pendant que vous jouez.</div>
+            <div class="info">5. Vous obtiendrez des points avec vos bonnes réponses.</div>
         </div>
         <div class="buttons">
-            <button class="quit">Exit Quiz</button>
-            <button class="restart">Continue</button>
+            <button class="quit">Quitter</button>
+            <button class="restart">Continuer</button>
         </div>
     </div>
 
@@ -142,13 +142,13 @@ if (isset($_GET['idQuiz'])) {
         <div class="icon">
             <i class="fas fa-crown"></i>
         </div>
-        <div class="complete_text">You've completed the Quiz!</div>
+        <div class="complete_text">Tu as terminé !</div>
         <div class="score_text">
             <!-- Here I've inserted Score Result from JavaScript -->
         </div>
         <div class="buttons">
-            <button class="restart">Replay Quiz</button>
-            <button class="quit">Quit Quiz</button>
+            <button class="restart">Relancer le Quiz</button>
+            <button class="quit">Quitter</button>
         </div>
     </div>
 
