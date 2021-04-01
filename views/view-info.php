@@ -2,8 +2,8 @@
     <div class="container mx-auto max-w-screen-xl px-5 md:px-0 pb-5">
         <div class="flex flex-wrap md:flex-nowrap">
             <div class="w-full md:w-1/2 bg-black p-5 mb-3 md:mb-0 md:mr-5">
-                <div class="flex justify-center">
-                    L'équipe de Vendredi vous souhaite un agréable voyage sur notre site Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia voluptatibus aspernatur totam ab. Molestias, quis autem. Provident explicabo nesciunt magni voluptatibus accusamus.
+                <div class="flex justify-center text-justify">
+                    L'équipe de Blablaquiz te souhaite un agréable voyage sur ce site, tu trouveras plein de quiz à explorer. Tester sa culture générale en s'amusant n'aura jamais été aussi simple !
                 </div>
 
             </div>

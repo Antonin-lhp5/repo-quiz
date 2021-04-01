@@ -64,8 +64,8 @@ class Quiz extends Database
     public function addQuiz(array $updateQuestion)
     {
         // Je mets en place des marqueurs nominatifs pour preparer ma requête avec des valeurs recuperées via form
-        $query = 'INSERT INTO `blablaquiz`.`library` (`qTitle`, `qImg`, `id_category`)
-        VALUES (:qTitle, :qImg, :id_category)';
+        $query = 'INSERT INTO `blablaquiz`.`library` (`qTitle`, `qImg`, `id_category`, `publicated`)
+        VALUES (:qTitle, :qImg, :id_category, "0")';
 
         // Nous preparons notre requete à l'aide de la methode prepare
         $addQuizQuery = $this->database->prepare($query);

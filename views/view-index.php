@@ -30,8 +30,7 @@
                 <div class="md:w-1/3 mr-5">
                     <h1 class="text-white text-xl sm:text-4xl font-title">Quiz catégories</h1>
                     <div class="bg-pink-600 h-1 w-40 rounded-lg my-3"></div>
-                    <p class="text-sm sm:text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe praesentium quo necessitatibus
-                        asperiores minus tempora, alias ullam cum voluptatum.</p>
+                    <p class="text-sm sm:text-base">Différentes catégories sont à ta disposition pour trouver tout ce que tu recherches en un clin d'oeil. <br> Amuse toi bien !</p>
                 </div>
 
 

@@ -4,19 +4,18 @@
     <div class="pb-3 px-2">Ajouter dans la bibliothèque</div>
 
     <?php
-    // Mise en place d'une condition pour ne plus afficher le formulaire quand la patient a bien été enregistré
+
     if (!$addQuizInBase) { ?>
 
-      <!-- si le quiz n'est pas enregistré nous indiquons l'utilisateur via un message -->
 
       <p class="text-red-500"><?= $messages['addQuiz'] ?? '' ?></p>
 
     <?php
-      // Mise en place d'un include pour la mise en place du formulaire
+
       include 'include/form-addQuiz.php';
     } else { ?>
 
-      <!-- si le quiz a bien été enregistré nous indiquons l'utilisateur via un message -->
+
       <div class="w-full text-white bg-green-500">
         <div class="container flex items-center px-6 py-4 mx-auto">
           <div class="flex">
@@ -34,7 +33,7 @@
 
             <h2 class="text-lg">Espace questions</h2>
             <p class="text-md mt-2">Ajoutez vos questions et réponses</p>
-            <a class="bg-blue-700 mx-auto hover:bg-blue-600 mt-4 text-white text-sm px-4 py-2 w-3/5">
+            <a  href="#" name="idQuiz" class="bg-blue-700 mx-auto hover:bg-blue-600 mt-4 text-white text-sm px-4 py-2 w-3/5">
               Ajouter
             </a>
 

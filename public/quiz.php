@@ -50,48 +50,8 @@ if (isset($_GET['idQuiz'])) {
 
 <body class="font-body">
 
-    <!-- <div class="container">
-        <div id="quiz" class="bg-purple-800 max-w-4xl mx-auto flex-col justify-center p-5 sm:mt-12 rounded-lg">
-            <div class="flex justify-between items-center">
-
-                <h1 class="text-center text-4xl font-bold font-title pb-5">Quiz</h1>
-
-                <p id="progress" class=""></p>
-            </div>
-
-
-            <h2 id="question" class="text-xl text-center py-10"></h2>
-
-            <h3 id="score"></h3>
-
-
-            <div class="choices">
-
-                <div class="grid lg:grid-cols-2 gap-2 md:gap-4 mt-10 text-white mx-5 choices">
-                    <button id="option0" onclick="calcScore(this)" class="bg-black rounded-lg p-6">
-                        <p id="choice0"></p>
-                    </button>
-
-                    <button id="option1" onclick="calcScore(this)" class="bg-black rounded-lg p-6">
-                        <p id="choice1"></p>
-                    </button>
-
-                    <button id="option2" onclick="calcScore(this)" class="bg-black rounded-lg p-6">
-                        <p id="choice2"></p>
-                    </button>
-
-                    <button id="option3" onclick="calcScore(this)" class="bg-black rounded-lg p-6">
-                        <p id="choice3"></p>
-                    </button>
-                </div>
-
-            </div>
-
-        </div>
-    </div> -->
-
     <!-- start Quiz button -->
-    <div class="start_btn bg-gray-500"><button>Lancer le quiz</button></div>
+    <div class="start_btn"><button>Lancer le quiz</button></div>
 
     <!-- Info Box -->
     <div class="info_box">
@@ -148,7 +108,7 @@ if (isset($_GET['idQuiz'])) {
         </div>
         <div class="buttons">
             <button class="restart">Relancer le Quiz</button>
-            <button class="quit">Quitter</button>
+            <button href="/explorer.php" class="quit">Quitter</button>
         </div>
     </div>
 

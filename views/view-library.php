@@ -1,5 +1,10 @@
 <!-- component -->
-<div class="text-lg text-center pt-3"><?= $messages['delete'] ?? '' ?></div>
+<div class="text-center text-lg">
+	<span class="pt-3 text-green-500"><?= $messages['deleteYes'] ?? '' ?></span>
+	<span class="pt-3 text-red-500"><?= $messages['deleteNo'] ?? '' ?></span>
+	<span class="pt-3 text-green-500"><?= $messages['publishYes'] ?? '' ?></span>
+	<span class="pt-3 text-red-500"><?= $messages['publishNo'] ?? '' ?></span>
+</div>
 
 <div class="shadow overflow-auto m-6 max-w-screen-xl mx-auto rounded-lg">
 
@@ -14,8 +19,7 @@
 			</tr>
 		</thead>
 		<tbody class="bg-gray-800 divide-y divide-gray-400">
-			<?php foreach ($allQuizArray as $quiz) 
-			{  ?>
+			<?php foreach ($allQuizArray as $quiz) {  ?>
 				<tr>
 					<td class="px-5 py-4 whitespace-nowrap">
 						<form action="" method="POST">

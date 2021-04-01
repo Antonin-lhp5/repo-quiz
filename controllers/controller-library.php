@@ -11,17 +11,17 @@ $messages = [];
 // nous controllons si nous avons appuyé sur notre bouton delete via la methode POST
 if(isset($_POST['deleteBtn'])){
     if($quizObj->deleteQuiz($_POST['deleteBtn'])){
-        $messages['delete'] = 'Le quiz a bien été supprimé';
+        $messages['deleteYes'] = 'Le quiz a bien été supprimé';
     } else {
-        $messages['delete'] = 'Le quiz n\'a pas pu être supprimé';
+        $messages['deleteNo'] = 'Le quiz n\'a pas pu être supprimé';
     }
 }
 
 if(isset($_POST['publish'])){
     if($quizObj->setUpdate($_POST['publish'],($_POST['publication']))) {
-        echo "ok";
+        $messages['publishYes'] = 'Le quiz a bien été publié';;
     } else {
-        echo "no";
+        $messages['publishNo'] = 'Le quiz n\'a pas pu être publié';
     }
 }
 

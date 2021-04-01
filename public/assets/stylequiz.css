@@ -8,12 +8,12 @@
 }
 
 body{
-    background: #007bff;
+    background: #1F2937;
 }
 
 ::selection{
     color: #fff;
-    background: #007bff;
+    background: #1F2937;
 }
 
 .start_btn,
@@ -40,7 +40,7 @@ body{
 .start_btn button{
     font-size: 25px;
     font-weight: 500;
-    color: #007bff;
+    color: #1F2937;
     padding: 15px 30px;
     outline: none;
     border: none;
@@ -51,12 +51,13 @@ body{
 
 .info_box{
     width: 540px;
-    background: #fff;
+    background: #4B5563;
     border-radius: 5px;
     transform: translate(-50%, -50%) scale(0.9);
     opacity: 0;
     pointer-events: none;
     transition: all 0.3s ease;
+    color:#fff;
 }
 
 .info_box .info-title{
@@ -82,7 +83,7 @@ body{
 
 .info_box .info-list .info span{
     font-weight: 600;
-    color: #007bff;
+    color: #F472B6;
 }
 .info_box .buttons{
     height: 60px;
@@ -103,18 +104,18 @@ body{
     border: none;
     outline: none;
     border-radius: 5px;
-    border: 1px solid #007bff;
+    /* border: 1px solid #1F2937; */
     transition: all 0.3s ease;
 }
 
 .quiz_box{
     width: 550px;
-    background: #fff;
     border-radius: 5px;
     transform: translate(-50%, -50%) scale(0.9);
     opacity: 0;
     pointer-events: none;
     transition: all 0.3s ease;
+    color:#FFF;
 }
 
 .quiz_box header{
@@ -122,12 +123,13 @@ body{
     z-index: 2;
     height: 70px;
     padding: 0 30px;
-    background: #fff;
+    background: #374151;
     border-radius: 5px 5px 0 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
     box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+    color: #E5E7EB;
 }
 
 .quiz_box header .title{
@@ -136,9 +138,9 @@ body{
 }
 
 .quiz_box header .timer{
-    color: #004085;
-    background: #cce5ff;
-    border: 1px solid #b8daff;
+    color: #FFF;
+    background: #4B5563;
+    border: 1px solid #6B7280;
     height: 45px;
     padding: 0 8px;
     border-radius: 5px;
@@ -173,12 +175,12 @@ body{
     bottom: 0px;
     left: 0px;
     height: 3px;
-    background: #007bff;
+    background: #EC4899;
 }
 
 section{
     padding: 25px 30px 20px 30px;
-    background: #fff;
+    background: #374151;
 }
 
 section .que_text{
@@ -192,8 +194,8 @@ section .option_list{
 }
 
 section .option_list .option{
-    background: aliceblue;
-    border: 1px solid #84c5fe;
+    background: #4B5563;
+    border: 1px solid #1F2937;
     border-radius: 5px;
     padding: 8px 15px;
     font-size: 17px;
@@ -210,21 +212,21 @@ section .option_list .option:last-child{
 }
 
 section .option_list .option:hover{
-    color: #004085;
-    background: #cce5ff;
-    border: 1px solid #b8daff;
+    color: #FDF2F8;
+    background: #374151;
+    border: 1px solid #EC4899;
 }
 
 section .option_list .option.correct{
-    color: #155724;
-    background: #d4edda;
-    border: 1px solid #c3e6cb;
+    color: #F3F4F6;
+    background: #34D399;
+    border: 1px solid #34D399;
 }
 
 section .option_list .option.incorrect{
-    color: #721c24;
-    background: #f8d7da;
-    border: 1px solid #f5c6cb;
+    color: #F3F4F6;
+    background: #DC2626;
+    border: 1px solid #DC2626;
 }
 
 section .option_list .option.disabled{
@@ -243,15 +245,15 @@ section .option_list .option .icon{
     line-height: 24px;
 }
 .option_list .option .icon.tick{
-    color: #23903c;
-    border-color: #23903c;
-    background: #d4edda;
+    color: white;
+    border-color: #059669;
+    background: #059669;
 }
 
 .option_list .option .icon.cross{
-    color: #a42834;
-    background: #f8d7da;
-    border-color: #a42834;
+    color: white;
+    background: #B91C1C;
+    border-color: #B91C1C;
 }
 
 footer{
@@ -261,6 +263,7 @@ footer{
     align-items: center;
     justify-content: space-between;
     border-top: 1px solid lightgrey;
+    background-color: #374151;
 }
 
 footer .total_que span{
@@ -287,8 +290,8 @@ footer button{
     outline: none;
     color: #fff;
     border-radius: 5px;
-    background: #007bff;
-    border: 1px solid #007bff;
+    background: #EC4899;
+    border: 1px solid #EC4899;
     line-height: 10px;
     opacity: 0;
     pointer-events: none;
@@ -297,7 +300,7 @@ footer button{
 }
 
 footer button:hover{
-    background: #0263ca;
+    background: #DB2777;
 }
 
 footer button.show{
@@ -307,7 +310,7 @@ footer button.show{
 }
 
 .result_box{
-    background: #fff;
+    background: #4B5563;
     border-radius: 5px;
     display: flex;
     padding: 25px 30px;
@@ -319,6 +322,7 @@ footer button.show{
     opacity: 0;
     pointer-events: none;
     transition: all 0.3s ease;
+    color: #E5E7EB;
 }
 
 .result_box .icon{
@@ -359,25 +363,25 @@ footer button.show{
     border: none;
     outline: none;
     border-radius: 5px;
-    border: 1px solid #007bff;
+    /* border: 1px solid #007bff; */
     transition: all 0.3s ease;
 }
 
 .buttons button.restart{
     color: #fff;
-    background: #007bff;
+    background: #374151;
 }
 
-.buttons button.restart:hover{
-    background: #0263ca;
+.buttons button.restart:hover{  
+    background: #111827;
 }
 
 .buttons button.quit{
-    color: #007bff;
+    color: #F472B6;
     background: #fff;
 }
 
 .buttons button.quit:hover{
     color: #fff;
-    background: #007bff;
+    background: #111827;
 }
